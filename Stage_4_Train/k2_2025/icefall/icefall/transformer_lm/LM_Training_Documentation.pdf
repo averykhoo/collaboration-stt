@@ -1,0 +1,25 @@
+LM Training
+
+1. Overview
+This document describes the Language Model (LM) training process, including the Transformer architecture, training method, and positional encoding details.
+
+2. Transformer Architecture
+- Model: TransformerLM
+- Embedding: Input embedding layer (torch.nn.Embedding)
+- Encoder: Stack of TransformerEncoderLayers (default: 12 layers, configurable)
+- Attention: Multi-head self-attention (nhead=8 by default)
+- Feedforward: Two-layer feedforward network (dim_feedforward=2048)
+- Output: Linear layer mapping to vocabulary size
+- Weight tying: Optionally ties input embedding and output linear weights
+- Dropout: 0.1 (configurable)
+
+3. Teacher Forcing Training
+- Training uses teacher forcing: During training, the model receives the ground-truth previous token as input for predicting the next token.
+- In train.py, compute_loss() passes x (input tokens) and y (target tokens, shifted by one position) to the model, which is standard teacher forcing for LM training.
+
+4. Positional Encoding
+- Type: Relative positional encoding (RelPositionalEncoding)
+- Implementation: Sine and cosine functions of different frequencies
+- Maximum length: Default is 5000 positions; if JIT tracing is enabled, up to 10,000 positions
+- The positional encoding is dynamically extended as needed for input length
+

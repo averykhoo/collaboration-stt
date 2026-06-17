@@ -1,0 +1,5 @@
+M = 6, S = 0, I = 0, D = 0
+WER = 0.0%, recall = 100.0%, precision = 100.0%, F1-score = 100.0%
+Substitutions:
+Insertions:
+Deletions:
