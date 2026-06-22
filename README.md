@@ -1,2 +1,0 @@
-# collaboration-stt
-collaboration-stt
