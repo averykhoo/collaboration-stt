@@ -113,3 +113,10 @@ raising an error.
 - Delete `.scratch/verify/` and your own output files when you're done.
 - Running Python creates `__pycache__/` folders under `Stage_5_Eval/`. They are safe to
   delete and shouldn't be committed.
+
+## Noise and reverb evaluation
+
+`noise_eval/` runs this model on far-field versions of the Mesolitica clip, built with the
+Farfield Audio Synthesis Toolkit, and scores WER with bootstrap confidence intervals. It covers
+two conditions: the normal noisy VAD, and an oracle that reuses the clean-audio VAD segments.
+Results, method and reproduction steps are in `noise_eval/RESULTS.md`.

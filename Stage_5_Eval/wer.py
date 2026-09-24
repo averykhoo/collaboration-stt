@@ -308,6 +308,9 @@ class AccuracyStatistics:
         for i in range(num_ref_words):
             # The first entry in each row corresponds to a sequence of deletions.
             self._scores_mat[i + 1][0] = self._scores_mat[i][0] + deletion_weight
+            # Without this the traceback hits op_null in column 0 and stops, silently dropping
+            # leading reference words instead of counting them as deletions.
+            self._ops_mat[i + 1][0] = op_deletion
 
             # Fill the rest of the row entries.
             for j in range(num_trans_words):

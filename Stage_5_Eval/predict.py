@@ -65,50 +65,65 @@ class AudioTool:
             if not line:
                 continue
 
-            waveform,samplerate = torchaudio.load(line)
+            waveform,samplerate = self.load_wav(line)
+            for hyp in self.decode(waveform, samplerate, self.segment(waveform, samplerate)):
+                write_line(w,hyp)
+        w.close()
 
-            if samplerate != 16000:
-                waveform = torchaudio.transforms.Resample(samplerate, 16000)(waveform)
-                samplerate = 16000
+    def load_wav(self, path):
+        """Load a file as a 16 kHz [1, T] tensor."""
+        line = path
+        waveform,samplerate = torchaudio.load(line)
 
-            assert samplerate == 16000, "ERROR. 16K WAVEFORM IS EXPECTED"
-            
-            wav_duration = float(waveform.shape[1]) / float(samplerate) - 0.01
-            
-            # VAD
-            start_end_arr = [] # Get initial start end array
-            if wav_duration < 1:
-                start_end_arr.append([0,wav_duration])
+        if samplerate != 16000:
+            waveform = torchaudio.transforms.Resample(samplerate, 16000)(waveform)
+            samplerate = 16000
+
+        assert samplerate == 16000, "ERROR. 16K WAVEFORM IS EXPECTED"
+        return waveform, samplerate
+
+    @torch.no_grad()
+    def segment(self, waveform, samplerate):
+        """VAD, margin merge and 30 s limiting. Returns [[start_s, end_s], ...]."""
+        wav_duration = float(waveform.shape[1]) / float(samplerate) - 0.01
+        
+        # VAD
+        start_end_arr = [] # Get initial start end array
+        if wav_duration < 1:
+            start_end_arr.append([0,wav_duration])
+        else:
+            vad_segs, vad_pred_sum = self.vader.infer(waveform, samplerate, thresh=5, n_moving=5) # Please use default values thresh=5, n_moving=5
+            for k,v in vad_segs[0].items():
+                start_end_arr.append([v[0],v[1]])
+        start_end_arr_new = [] # Expand start-end array
+        segment_start = -1
+        prev_start = -1
+        prev_end = -1        
+        for se in start_end_arr:
+            cur_start = max(se[0] - MARGIN, 0.0)
+            cur_end = min(se[1] + MARGIN, wav_duration)
+            if prev_start == -1:
+                segment_start = cur_start
             else:
-                vad_segs, vad_pred_sum = self.vader.infer(waveform, samplerate, thresh=5, n_moving=5) # Please use default values thresh=5, n_moving=5
-                for k,v in vad_segs[0].items():
-                    start_end_arr.append([v[0],v[1]])
-            start_end_arr_new = [] # Expand start-end array
-            segment_start = -1
-            prev_start = -1
-            prev_end = -1        
-            for se in start_end_arr:
-                cur_start = max(se[0] - MARGIN, 0.0)
-                cur_end = min(se[1] + MARGIN, wav_duration)
-                if prev_start == -1:
-                    segment_start = cur_start
+                if prev_end > cur_start:
+                    dummy = 1
                 else:
-                    if prev_end > cur_start:
-                        dummy = 1
-                    else:
-                        segment_end = prev_end
-                        start_end_arr_new.append([segment_start,segment_end])
-                        segment_start = cur_start
-                prev_start = cur_start
-                prev_end = cur_end
-            start_end_arr_new.append([segment_start,cur_end])
+                    segment_end = prev_end
+                    start_end_arr_new.append([segment_start,segment_end])
+                    segment_start = cur_start
+            prev_start = cur_start
+            prev_end = cur_end
+        start_end_arr_new.append([segment_start,cur_end])
 
-            # VAD LIMITATION ALGORITHM
-            # This implements a Voice Activity Detection (VAD) limitation algorithm
-            # using a recursive approach to split long segments.
+        # VAD LIMITATION ALGORITHM
+        # This implements a Voice Activity Detection (VAD) limitation algorithm
+        # using a recursive approach to split long segments.
 
-            def find_split_candidate(candidate_ind, ind_offset, vad_pred_sum, global_th):
-                """Recursively find a candidate index where vad_pred_sum is below threshold."""
+        def find_split_candidate(candidate_ind, ind_offset, vad_pred_sum, global_th):
+            """Search outward from candidate_ind, alternating right then left, for an index where
+            vad_pred_sum is below threshold. Iterative (was recursive, which hit Python's
+            recursion limit when heavy noise made the VAD call a whole long file speech)."""
+            while True:
                 candidate_ind += ind_offset
                 if vad_pred_sum[candidate_ind] < global_th:
                     return candidate_ind
@@ -117,88 +132,99 @@ class AudioTool:
                 if vad_pred_sum[candidate_ind] < global_th:
                     return candidate_ind
                 ind_offset += 1
-                return find_split_candidate(candidate_ind, ind_offset, vad_pred_sum, global_th)
 
-            def limit_segments(segments):
-                """Recursively split segments that exceed the duration limit."""
-                limited = []
-                long_segment_found = False
+        def limit_segments(segments):
+            """Recursively split segments that exceed the duration limit."""
+            limited = []
+            long_segment_found = False
 
-                for se in segments:
-                    start_time = se[0]
-                    end_time = se[1]
-                    cur_dur = end_time - start_time
-
-                    if cur_dur <= self.params.splittime:
-                        limited.append([start_time, end_time])
-                    else:
-                        long_segment_found = True
-
-                        # Calculate energy indices based on start and end times
-                        start_energy_ind = int(start_time * MODEL_SAMPLING_RATE / 1024.0)
-                        end_energy_ind = int(end_time * MODEL_SAMPLING_RATE / 1024.0)
-
-                        # Find the global minimum and maximum of VAD predictions within the segment
-                        global_min = np.min(vad_pred_sum[start_energy_ind:end_energy_ind])
-                        global_max = np.max(vad_pred_sum[start_energy_ind:end_energy_ind])
-
-                        # Set a threshold for segment splitting
-                        global_th = (global_max - global_min) * 0.05 + global_min
-
-                        # Find the candidate index for splitting
-                        candidate_ind = int((end_energy_ind - start_energy_ind) / 2.0 + start_energy_ind)
-
-                        # Adjust the candidate index based on VAD predictions and threshold
-                        if vad_pred_sum[candidate_ind] > global_th:
-                            candidate_ind = find_split_candidate(candidate_ind, 1, vad_pred_sum, global_th)
-
-                        if (candidate_ind == end_energy_ind) or (candidate_ind == start_energy_ind):
-                            print("WARNING IT IS RECOMMENDED TO INCREASE PERCENT OF ENERGY THRESHOLD.")
-                            int((end_energy_ind - start_energy_ind) / 2.0 + start_energy_ind)
-
-                        # Calculate the midpoint time based on the adjusted candidate index
-                        mid_time = candidate_ind * 1024 / MODEL_SAMPLING_RATE
-
-                        # Add two new segments (before and after the midpoint)
-                        limited.append([start_time, mid_time])
-                        limited.append([mid_time, end_time])
-
-                # If long segments were found, recurse with the new list
-                if long_segment_found:
-                    return limit_segments(limited)
-                return limited
-
-            start_end_arr_new_limited = limit_segments(start_end_arr_new)
-
-            obs_arr = []
-            for se in start_end_arr_new_limited:
+            for se in segments:
                 start_time = se[0]
                 end_time = se[1]
+                cur_dur = end_time - start_time
 
-                seg_wav = waveform[:,int(samplerate*start_time):int(samplerate*end_time)].to(self.device)
+                if cur_dur <= self.params.splittime:
+                    limited.append([start_time, end_time])
+                else:
+                    long_segment_found = True
 
-                features = torchaudio.compliance.kaldi.fbank(waveform=seg_wav,snip_edges=False,high_freq=-400.0,num_mel_bins=80,energy_floor=1e-10)
-                feature_lengths = [len(features)]
-                feature_lengths = torch.tensor(feature_lengths, device=self.device)
-                features = features.unsqueeze(0)
+                    # Calculate energy indices based on start and end times
+                    start_energy_ind = int(start_time * MODEL_SAMPLING_RATE / 1024.0)
+                    end_energy_ind = int(end_time * MODEL_SAMPLING_RATE / 1024.0)
 
-                #torch.set_num_threads(1)
+                    # Find the global minimum and maximum of VAD predictions within the segment
+                    global_min = np.min(vad_pred_sum[start_energy_ind:end_energy_ind])
+                    global_max = np.max(vad_pred_sum[start_energy_ind:end_energy_ind])
 
-                encoder_out, encoder_out_lens = self.model.forward_encoder(features, feature_lengths)
-                
-                hyps = []
-                def token_ids_to_words(token_ids: List[int]) -> str:
-                    text = ""
-                    for i in token_ids:
-                        text += self.token_table[i]
-                    return text.replace("▁", " ").strip()
-                hyp_tokens = greedy_search_batch(model=self.model,encoder_out=encoder_out,encoder_out_lens=encoder_out_lens)
-                for hyp in hyp_tokens:
-                    hyps.append(token_ids_to_words(hyp))
-                for hyp in hyps:
-                    write_line(w,hyp)
-                    obs_arr.append(hyp)
-        w.close()
+                    # Set a threshold for segment splitting
+                    global_th = (global_max - global_min) * 0.05 + global_min
+
+                    # Find the candidate index for splitting
+                    candidate_ind = int((end_energy_ind - start_energy_ind) / 2.0 + start_energy_ind)
+
+                    # Adjust the candidate index based on VAD predictions and threshold
+                    if vad_pred_sum[candidate_ind] > global_th:
+                        candidate_ind = find_split_candidate(candidate_ind, 1, vad_pred_sum, global_th)
+
+                    if (candidate_ind == end_energy_ind) or (candidate_ind == start_energy_ind):
+                        print("WARNING IT IS RECOMMENDED TO INCREASE PERCENT OF ENERGY THRESHOLD.")
+                        # Fall back to the midpoint. This assignment was missing, so a split
+                        # landing on the boundary made no progress and recursed forever.
+                        candidate_ind = int((end_energy_ind - start_energy_ind) / 2.0 + start_energy_ind)
+
+                    # Calculate the midpoint time based on the adjusted candidate index
+                    mid_time = candidate_ind * 1024 / MODEL_SAMPLING_RATE
+
+                    # Add two new segments (before and after the midpoint)
+                    limited.append([start_time, mid_time])
+                    limited.append([mid_time, end_time])
+
+            # If long segments were found, recurse with the new list
+            if long_segment_found:
+                return limit_segments(limited)
+            return limited
+
+        start_end_arr_new_limited = limit_segments(start_end_arr_new)
+        return start_end_arr_new_limited
+
+    @torch.no_grad()
+    def decode(self, waveform, samplerate, segments):
+        """Greedy-decode each [start_s, end_s] segment; one text line per decoded segment."""
+        obs_arr = []
+        for se in segments:
+            start_time = se[0]
+            end_time = se[1]
+
+            seg_wav = waveform[:,int(samplerate*start_time):int(samplerate*end_time)].to(self.device)
+
+            # Noisy audio can make the VAD emit slivers too short to decode. Skip exactly
+            # the ones that would crash: fbank needs one 400-sample window, and the
+            # Zipformer conv front end needs at least 9 frames (probed 2026-09-24).
+            if seg_wav.shape[1] < 400:
+                continue
+            features = torchaudio.compliance.kaldi.fbank(waveform=seg_wav,snip_edges=False,high_freq=-400.0,num_mel_bins=80,energy_floor=1e-10)
+            if len(features) < 9:
+                continue
+            feature_lengths = [len(features)]
+            feature_lengths = torch.tensor(feature_lengths, device=self.device)
+            features = features.unsqueeze(0)
+
+            #torch.set_num_threads(1)
+
+            encoder_out, encoder_out_lens = self.model.forward_encoder(features, feature_lengths)
+            
+            hyps = []
+            def token_ids_to_words(token_ids: List[int]) -> str:
+                text = ""
+                for i in token_ids:
+                    text += self.token_table[i]
+                return text.replace("▁", " ").strip()
+            hyp_tokens = greedy_search_batch(model=self.model,encoder_out=encoder_out,encoder_out_lens=encoder_out_lens)
+            for hyp in hyp_tokens:
+                hyps.append(token_ids_to_words(hyp))
+            for hyp in hyps:
+                obs_arr.append(hyp)
+        return obs_arr
 
 def get_parser():
     parser = argparse.ArgumentParser(
