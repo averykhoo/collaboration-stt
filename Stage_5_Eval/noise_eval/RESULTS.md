@@ -110,8 +110,8 @@ None of this costs much WER. For this model, the damage is in the recogniser, no
 2. **The model goes silent on reverb rather than guessing.** 94–98% of reverb-cell errors are
    deletions, against 57% on clean. Level is not the cause:
    - Clean turned down 8 dB, to the reverb files' RMS, gives 37.2% WER (+1.7 pp).
-   - A reverb file turned up to clean level still gives 68.1%. Those are single ad-hoc runs,
-     recorded here but not in `results_2026-09-24/`.
+   - A reverb file turned up to clean level still gives 68.1%. Those are single ad-hoc runs; see
+     `results_2026-09-24/level_check/` and `FAST_NOTES.md`.
 3. **Noise alone degrades gracefully, but depends heavily on noise type.**
    - 20 dB is indistinguishable from clean (+0.8 pp [-1.8, +3.3]), 10 dB costs about 6 pp, and
      0 dB costs about 21 pp.
@@ -147,6 +147,35 @@ None of this costs much WER. For this model, the damage is in the recogniser, no
   - It affected 52 of 70 noisy-VAD runs, by 1–283 words, and 53 of 70 oracle runs, by up to 921
     words.
   - The clean result is unaffected: the stat file is byte-identical to the original.
+
+## Evidence and checks
+
+`results_2026-09-24/` holds the raw evidence as well as the summaries:
+- `manifest.csv`: every run's cell, draw, IR (with measured T30), noise clip and slice seed.
+- `transcripts/{noisy_vad,oracle_vad}/`: every transcript (`<id>.txt`) and the segments it was
+  decoded with (`<id>.segments.json`), 71 runs each including `clean`. The oracle segments are in
+  `oracle_vad/oracle.segments.json`.
+- `result_*_cells.csv`, `result_*_runs.csv`, `result_*_table.md` and `result_vadstats.md`: the
+  tables above.
+- `level_check/`: the loudness test from finding 2.
+
+The tables regenerate from these files without any audio. For example, the command below
+reproduces `result_oracle_cells.csv` exactly (verified 2026-09-24):
+
+```bash
+$PY Stage_5_Eval/noise_eval/score.py $D/manifest.csv $D/transcripts/oracle_vad $GT out   # D=results dir
+```
+
+Checks run during this work:
+- **Augmentation, draw 0:** output lengths equal the input, measured SNR is within 0.01 dB of the
+  target, the lag to dry is 16 and 144 samples, and there is no clipping. Room reverb correlates
+  1.0000 with a direct `fftconvolve`.
+- **Byte-identity:** the clean output is byte-identical to the original GPU run, via both the
+  `predict.py` CLI and `transcribe_many.py`, after every `predict.py` change. Oracle mode applied
+  to the clean clip also reproduces it.
+- **`wer.py` fix:** the clean stat file is byte-identical to the original `stat_mesolitica.txt`.
+- **`wer_utt.py` guard:** its assert (per-utterance sums equal `wer.py`'s totals) was sabotaged
+  by dropping insertion attribution, and it failed as expected (20 insertions against 43).
 
 ## Reproduce
 
