@@ -123,6 +123,58 @@ None of this costs much WER. For this model, the damage is in the recogniser, no
    training (reverb), with babble-type noise a clear second. The current recipe only mixes MUSAN
    noise.
 
+## External baselines: Gemini (run 2026-09-24, free tier)
+
+`gemini_transcribe.py` sends each file to the Gemini API as a single request.
+- **Audio span:** from the first to the last oracle-VAD segment, as FLAC through the Files API.
+  Uploads are deleted after use. Both systems hear the same speech.
+- **Normalisation:** outputs are lowercased, punctuation is stripped, hyphens are split and
+  numbers are spelled out in Malay. Then they are scored exactly like our model.
+- **Last column:** the paired difference against our model's oracle-VAD transcripts.
+- **Evidence:** raw API responses and transcripts are in `results_2026-09-24/gemini/`.
+
+### Gemini 3.5 Transcribe (`gemini-3.5-transcribe`)
+
+This is a dedicated transcription model, used with no prompt. Its free tier allows 25 requests a
+day and 10K tokens a minute, so it covers a 20-file subset: clean, noise-only at 10 and 0 dB,
+and reverb-only in both buckets, with all 5 draws.
+
+| RT60 bucket | SNR (dB) | WER % [95% CI] | per-draw mean ± sd | ΔWER Gemini − ours, pp [95% CI] |
+|---|---|---|---|---|
+| clean | clean | 37.1 [31.1, 43.3] | — | +1.6 [-4.8, +7.6] |
+| none | 10 | 38.5 [32.1, 45.0] | 38.5 ± 2.8 | -3.3 [-10.4, +3.2] |
+| none | 0 | 52.1 [38.8, 66.1] | 52.1 ± 15.5 | -4.0 [-9.7, +1.9] |
+| 0.4s | none | 61.2 [40.2, 84.3] | 61.2 ± 27.3 | -14.8 [-33.4, +4.9] |
+| 0.8s | none | 88.5 [73.4, 98.5] | 88.5 ± 16.0 | -5.1 [-19.6, +5.3] |
+
+- **Parity.** Our model is statistically level with Gemini Transcribe in every tested cell: all
+  paired CIs include 0.
+- **Reverb breaks Gemini too, all or nothing.** For 3 of the 10 reverb files, it read all the
+  audio (14,820 tokens) and returned an empty transcript with `finishReason: STOP`, which is 100%
+  WER. Two of those three use `room_021_v4_far_4.34m`, whose reflections are 5 dB louder than the
+  direct sound. On other IRs it stays near its clean level (37.6–44.5% on three of the 0.4s
+  draws), whereas our model is uniformly bad (69–94%).
+  - This supports finding 1: these rooms are genuinely hard, not only hard for our model.
+  - Our model is the one hurt more consistently.
+
+### Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`): not usable as an ASR baseline
+
+This is a general LLM, prompted for a verbatim Malay transcript at temperature 0 (the prompt is
+`PROMPT_MALAY`). It ran on the full grid, 71 files.
+
+- **Clean WER:** 41.8%, which is +6.3 pp [+0.1, +12.3] against our model.
+- **20 of 71 outputs broke:**
+  - 12 were runaway repetition loops, up to 40,468 inserted words in one file; two hit
+    `MAX_TOKENS`.
+  - 7 were near-empty, with fewer than 150 words out.
+  - 1 was blocked with `finishReason: RECITATION`.
+- **Effect on the tables:** these failures drive cell WERs above 100%, up to 823% (full table in
+  `gemini/flash_lite/result_flashlite_table.md`).
+- **Even robustly it trails.** Median per-draw WER in the noise-only cells is 51–77%, against our
+  36–56%.
+- **Scoring rule:** digit runs longer than 12 characters are dropped as loop output before
+  scoring. Nothing else is filtered.
+
 ## Bugs found and fixed along the way
 
 - **`predict.py`: crash on very short segments.** Noisy audio makes the VAD emit slivers too short
@@ -200,3 +252,14 @@ $PY Stage_5_Eval/noise_eval/vad_stats.py $E/wav/manifest.csv $E/pred $E/pred_ora
 ```
 
 `augment.py` seeds everything with `zlib.crc32`, so rerunning it reproduces the same draws.
+
+Gemini baselines (needs the API key in `~/.gemini_api_key`; free-tier quotas as noted above):
+
+```bash
+M=$E/manifest_with_clean.csv   # wav/manifest.csv plus a "clean" row pointing at $CW
+S=Stage_5_Eval/noise_eval/results_2026-09-24/oracle.segments.json
+$PY Stage_5_Eval/noise_eval/gemini_transcribe.py $M $S $E/gemini_transcribe --ids <subset>        # 3.5 Transcribe
+$PY Stage_5_Eval/noise_eval/gemini_transcribe.py $M $S $E/gemini_flashlite \
+    --model gemini-3.5-flash-lite --prompt malay --min-interval 5
+$PY Stage_5_Eval/noise_eval/score.py <manifest> $E/gemini_transcribe $GT out --vs <ours oracle_vad dir>
+```
