@@ -214,9 +214,10 @@ the same way. "then" gives the second attempt's result where it differed.
 | Gemini 3 Flash, thinking low | own | 45.7 | 47.4 | 61.4 | 42.0 | ✗ runaway |
 | Gemini 3.5 Flash | own | ✗ cut short ×2 | 41.0 | ✗ empty, then ✗ runaway | 43.1 | 48.0 |
 | Gemini 3.5 Flash, thinking low | own | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway | ✗ RECITATION |
-| Gemini 3.6 Flash | own | pending (503) | 45.4 | 43.8 | 47.0 | pending (503) |
+| Gemini 3.6 Flash | own | 43.4 | 45.4 | 43.8 | 47.0 | 53.6 |
 | Gemini 3.8 Flash | own | 45.5 | 47.0 | 42.4 | ✗ blocked, then 46.3 | ✗ blocked ×2 |
-| Gemma 4 E2B (local, bf16) | oracle VAD | 43.9 | pending | pending | pending | pending |
+| Gemini 3.8 Flash, thinking low | own | not run (503, then daily quota) | 45.7 | 44.8 | ✗ blocked | ✗ blocked |
+| Gemma 4 E2B (local, bf16) | oracle VAD | 43.9 | 44.0 | 45.3 | 51.1 | 65.8 |
 | Mesolitica Whisper turbo, standard fallback decoding | oracle VAD | 49.4 | 47.0 | 65.4 | 51.1 | 96.7 |
 | Mesolitica Whisper turbo, greedy only | oracle VAD | 48.2 | 90.5 | 77.6 | 128.5 | 190.8 |
 | Gemini 3.1 Flash-Lite | own | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway |
@@ -230,8 +231,11 @@ Per-file scores for the retries, the thinking-low runs and 3.6 Flash are in
    reach 42–48% and Transcribe Live 71%, against our 94%. Whisper's 0.8s WER (96.7%) is inflated
    by one looping segment, but it gets 538 of 1,046 reference words right there, against our 65.
    This supports finding 1: reverb is a gap in our model, not only a hard test.
-3. **General-purpose LLMs are unreliable transcribers.** Each Flash model broke on at least one
-   of the five files.
+3. **General-purpose LLMs are mostly unreliable transcribers.** Every Flash model except 3.6
+   broke on at least one of the five files.
+4. **Robust on all five files, and none of them failed:** ours, Transcribe Live, 3.6 Flash,
+   Whisper with fallback and Gemma 4 E2B. Among them, Gemma 4 E2B, a 5B-parameter model running
+   locally, is the most noise-robust: clean 43.9, 0 dB 45.3.
 
 ### Mesolitica Whisper (`mesolitica/Malaysian-whisper-large-v3-turbo-v3`)
 
@@ -296,7 +300,7 @@ Free tier, 20 requests a day each.
 | 3 Flash | On 0 dB it spent 62,910 thinking tokens, then answered partly in French until `MAX_TOKENS`. |
 | 3.8 Flash | Both reverb files were blocked: `promptFeedback.blockReason: OTHER`, no candidates. |
 | 3.1 Flash-Lite | All five hit `MAX_TOKENS` with 33K–65K words each (reference: 1,046). Not scored: aligning them took over 16 GB of RAM. |
-| 3.6 Flash | 3 of 5 files done; clean and 0.8s still failing with HTTP 503 "high demand" after 7-minute backoffs. |
+| 3.6 Flash | Nothing broke; it was the only Flash model to complete all five files. It needed several rounds of retries through HTTP 503 "high demand". |
 
 - **Retries (same day, a second API key, identical settings).** Most failures reproduce:
   - Transcribe returned empty transcripts again on all 3 reverb files it had emptied.
@@ -315,9 +319,24 @@ Free tier, 20 requests a day each.
 ### Gemma 4 E2B (`google/gemma-4-E2B-it`, local)
 
 Only the E2B, E4B and 12B checkpoints take audio, and only in clips of up to 30 s.
-`gemma_transcribe.py` runs E2B in bfloat16 on the CPU with the model card's ASR prompt. It takes
-about 3 minutes per segment, around 15× slower than real time. The clean run was in progress when
-this was written; its result will be added here.
+`gemma_transcribe.py` runs E2B in bfloat16 on the CPU with the model card's ASR prompt.
+
+- **Speed.** 89–106 minutes per 532.6 s of segment audio, roughly 10–12× slower than real time,
+  with 4 threads.
+- **Results** (`results_2026-09-25/gemma/`, paired Δ against our oracle-VAD run):
+
+| Cell | WER % [95% CI] | Δ vs its clean, pp | Gemma − ours, pp |
+|---|---|---|---|
+| clean | 43.9 [37.0, 51.0] | — | +8.4 [+1.6, +14.8] |
+| none, 10 dB | 44.0 [36.8, 51.4] | +0.1 [−2.2, +2.6] | +5.5 [−1.9, +12.6] |
+| none, 0 dB | 45.3 [38.3, 52.8] | +1.4 [−1.3, +4.5] | +5.7 [−1.6, +12.6] |
+| 0.4s, none | 51.1 [44.0, 58.4] | +7.2 [+3.6, +10.9] | −18.0 [−25.9, −10.2] |
+| 0.8s, none | 65.8 [59.4, 72.5] | +21.9 [+17.5, +26.4] | −28.0 [−34.3, −21.3] |
+
+- **Noise barely moves it.** Office noise at 0 dB costs 1.4 pp. That is draw 0 only; babble was
+  the hard noise type for our model and has not been tried.
+- **Reverb costs it much less than it costs ours.**
+- **No failures.** It had no runaway segments and one empty segment across all five files.
 
 ## Bugs found and fixed along the way
 

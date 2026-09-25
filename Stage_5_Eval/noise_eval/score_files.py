@@ -23,7 +23,7 @@ for d in sys.argv[1:]:
         fin = ""
         rp = os.path.join(d, "raw", i + ".json")
         if os.path.exists(rp):
-            resp = json.load(open(rp, encoding="utf-8")).get("responses", [{}])
+            resp = json.load(open(rp, encoding="utf-8")).get("responses")  # Gemini raw files only
             if resp:
                 c = resp[0].get("candidates", [{}])[0]
                 fin = c.get("finishReason") or ("blocked:" + str(resp[0].get("promptFeedback", {}).get("blockReason")))
