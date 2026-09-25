@@ -158,7 +158,8 @@ def _generate(model, key, body):
                                  headers={"Content-Type": "application/json", "x-goog-api-key": key})
     for attempt in range(4):
         try:
-            return json.load(urllib.request.urlopen(req, timeout=300))
+            # Thinking models (e.g. gemini-3.5-flash) took over 300 s on a 10-minute file.
+            return json.load(urllib.request.urlopen(req, timeout=900))
         except urllib.error.HTTPError as err:
             if err.code == 429:
                 body = err.read().decode()
@@ -173,7 +174,7 @@ def _generate(model, key, body):
                 time.sleep(2 ** (attempt + 1))
                 continue
             raise RuntimeError(f"HTTP {err.code}: {err.read().decode()[:500]}")
-        except urllib.error.URLError:
+        except (urllib.error.URLError, TimeoutError):
             if attempt == 3:
                 raise
             time.sleep(2 ** (attempt + 1))

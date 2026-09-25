@@ -175,6 +175,123 @@ This is a general LLM, prompted for a verbatim Malay transcript at temperature 0
 - **Scoring rule:** digit runs longer than 12 characters are dropped as loop output before
   scoring. Nothing else is filtered.
 
+## More baselines: Whisper, Gemini Live and Gemini Flash (run 2026-09-25)
+
+All numbers in this section come from runs on 2026-09-25. Evidence is in
+`results_2026-09-25/`: every transcript, every raw model output, and the score tables.
+
+- **Same speech for everyone.** Whisper and Gemma decode each oracle-VAD segment separately. The
+  Gemini models get the first-to-last oracle span, as in the 2026-09-24 runs.
+- **Same scoring.** Outputs are normalised with `gemini_transcribe.normalise` and scored with
+  `score.py`, like everything above.
+- **Mostly draw 0 only.** The table below covers clean plus draw 0 of four cells
+  (`results_2026-09-25/manifest_d0.csv`). With one draw per cell, the CIs cover only utterance
+  resampling.
+- **A caveat on the test clip.** It comes from Mesolitica, and so does the training data of both
+  our model and Mesolitica's Whisper. It is home ground for both. FLEURS test, and the 3 m
+  re-recording of it from Stage 3, would be a neutral test (see `exported/Stage5.tar.gz`).
+
+### All models on the draw-0 files
+
+WER %; ✗ means no usable output.
+
+| Model | clean | none, 10 dB | none, 0 dB | 0.4s, none | 0.8s, none |
+|---|---|---|---|---|---|
+| **Ours** (oracle VAD) | **35.5** | 38.4 | 39.6 | 69.0 | 93.8 |
+| Gemini 3.5 Transcribe (2026-09-24) | 37.1 | **36.2** | **36.4** | **37.6** | ✗ empty |
+| Gemini 3.5 Transcribe Live | 42.4 | 45.4 | 50.2 | 51.6 | 70.6 |
+| Gemini 3 Flash (`gemini-3-flash-preview`) | 43.3 | 44.9 | ✗ runaway (111.5) | 40.8 | **42.5** |
+| Gemini 3.8 Flash | 45.5 | 47.0 | 42.4 | ✗ blocked | ✗ blocked |
+| Gemini 3.5 Flash | ✗ cut short (99.6) | 41.0 | ✗ empty | 43.1 | 48.0 |
+| Mesolitica Whisper turbo, standard fallback decoding | 49.4 | 47.0 | 65.4 | 51.1 | 96.7 |
+| Mesolitica Whisper turbo, greedy only | 48.2 | 90.5 | 77.6 | 128.5 | 190.8 |
+
+1. **On clean speech, nothing beats our model.** Gemini Transcribe is level with it; every other
+   model is 7–14 pp worse.
+2. **Reverb hurts our model far more than the others.** In the 0.8s cell the Gemini Flash models
+   reach 42–48% and Transcribe Live 71%, against our 94%. Whisper's 0.8s WER (96.7%) is inflated
+   by one looping segment, but it gets 538 of 1,046 reference words right there, against our 65.
+   This supports finding 1: reverb is a gap in our model, not only a hard test.
+3. **General-purpose LLMs are unreliable transcribers.** Each Flash model broke on at least one
+   of the five files.
+
+### Mesolitica Whisper (`mesolitica/Malaysian-whisper-large-v3-turbo-v3`)
+
+This is Mesolitica's Malaysian fine-tune of Whisper large-v3 turbo. It is not the stock OpenAI
+`large-v3` that the Stage 3 baseline used. It ran with `whisper_transcribe.py`: HF transformers,
+fp32, CPU, language `ms`, no timestamps.
+
+- **Greedy decoding loops.** Pure greedy (to match our model) falls into repetition loops on
+  noisy audio: 2–5 of 42 segments per noisy file, e.g. "eh" 444 times on a 1.2 s segment. That
+  adds 500–1,500 inserted words per file, hence WERs over 100%.
+- **The fair baseline is the standard fallback** (`--fallback`). A repetitive or unlikely segment
+  is re-decoded at temperature 0.2 … 1.0, as stock Whisper does. It left one looping segment in
+  each of two files, and on the 0.8s file that one segment ("eh" × 384) is most of the WER.
+- **Against ours (fallback, paired Δ):**
+  - Clean: +14.0 pp [+5.0, +23.2], mostly substitutions and insertions. Some of it is spelling
+    style ("di kalangan" vs "dikalangan"). The reference follows Mesolitica conventions, and so
+    does our training data.
+  - 10 dB: +8.6 pp [−0.3, +17.6]. 0 dB: +25.8 pp [+2.2, +64.3].
+  - 0.4s: −18.0 pp [−27.2, −8.4].
+- **Arabic script.** On a recited Quran verse Whisper writes Arabic script, while the reference
+  romanises it. That costs it 26 words on clean.
+- **Speed (wall clock, 4 threads, i7-1365U).**
+  - Greedy: 17–29 min per file.
+  - Fallback: 22–41 min per file, but that run overlapped a Gemma job and a large scoring job.
+  - Full grid (71 files): about 20 h in fp32.
+- **int8 is not a stand-in.** faster-whisper int8 (CTranslate2) matched fp32 on only 13 of 42
+  clean segments, looped more (clean WER 94.6%), and was only 5% faster on clean.
+
+### Gemini 3.5 Transcribe Live (`gemini-3.5-transcribe-live`)
+
+This is the Live API (WebSocket) version of Transcribe, run with `gemini_live_transcribe.py`. It
+has no daily request limit on the free tier. Audio is streamed at 4× real time, the server's own
+VAD splits it into turns, and the final `inputTranscription` of each turn is scored.
+
+- **Streaming pace matters for quota.** Streaming unpaced hit the per-minute token limit (socket
+  close 1011).
+- **Results.** It covered the same 21 files as Transcribe (clean plus five draws of four cells):
+
+| Cell | WER % [95% CI] | Live − ours, pp | Live − Transcribe, pp |
+|---|---|---|---|
+| clean | 42.4 [35.5, 49.2] | +7.0 [−0.1, +13.9] | +5.4 [+1.3, +10.0] |
+| none, 10 dB | 48.6 [40.8, 56.6] | +6.8 [+0.6, +12.7] | +10.1 [+5.9, +14.8] |
+| none, 0 dB | 69.4 [50.9, 87.1] | +13.3 [+6.0, +20.7] | +17.3 [+9.7, +25.2] |
+| 0.4s, none | 57.2 [49.7, 64.9] | −18.8 [−26.2, −11.3] | −4.0 [−27.4, +17.0] |
+| 0.8s, none | 71.8 [65.1, 78.4] | −21.8 [−28.5, −15.2] | −16.8 [−29.4, −1.3] |
+
+- **Worse on noise, better on reverb.** Live is significantly worse than both ours and Transcribe
+  on noise, and significantly better than ours on reverb.
+- **It never goes silent.** Transcribe emptied 3 reverb files; Live's per-draw sd on reverb is
+  about 5 pp.
+- **Deletions dominate its errors** (198 of 444 on clean).
+- **Untested.** Whether real-time pacing, or our segmentation instead of the server VAD, would
+  help.
+
+### Gemini Flash models (prompted, `gemini_transcribe.py --prompt malay`)
+
+Free tier, 20 requests a day each.
+
+| Model | What broke |
+|---|---|
+| 3.5 Flash | On clean it stopped after about 30 s of audio (`STOP`, 36 output tokens). On 0 dB it spent 62,915 thinking tokens and returned a blank line. |
+| 3 Flash | On 0 dB it spent 62,910 thinking tokens, then answered partly in French until `MAX_TOKENS`. |
+| 3.8 Flash | Both reverb files were blocked: `promptFeedback.blockReason: OTHER`, no candidates. |
+| 3.1 Flash-Lite | All five hit `MAX_TOKENS` with 33K–65K words each (reference: 1,046). Not scored: aligning them took over 16 GB of RAM. |
+| 3.6 Flash | 3 of 5 files done, then HTTP 503 "high demand". Not scored. |
+
+- **Thinking may be the cause of the first two.** Turning thinking off or down may fix those
+  failures; that is untested.
+- **Unavailable models.** `gemini-2.5-flash` is no longer offered to new keys (HTTP 404). The
+  hosted Gemma 4 models (`gemma-4-31b-it`, `gemma-4-26b-a4b-it`) reject audio.
+
+### Gemma 4 E2B (`google/gemma-4-E2B-it`, local)
+
+Only the E2B, E4B and 12B checkpoints take audio, and only in clips of up to 30 s.
+`gemma_transcribe.py` runs E2B in bfloat16 on the CPU with the model card's ASR prompt. It takes
+about 3 minutes per segment, around 15× slower than real time. The clean run was in progress when
+this was written; its result will be added here.
+
 ## Bugs found and fixed along the way
 
 - **`predict.py`: crash on very short segments.** Noisy audio makes the VAD emit slivers too short
@@ -263,3 +380,22 @@ $PY Stage_5_Eval/noise_eval/gemini_transcribe.py $M $S $E/gemini_flashlite \
     --model gemini-3.5-flash-lite --prompt malay --min-interval 5
 $PY Stage_5_Eval/noise_eval/score.py <manifest> $E/gemini_transcribe $GT out --vs <ours oracle_vad dir>
 ```
+
+2026-09-25 baselines (Whisper and Gemma need `pip install transformers`; Gemma also needs `pillow`
+and `torchvision==0.23.0` from the PyTorch CPU index, which keeps torch at 2.8):
+
+```bash
+R=Stage_5_Eval/noise_eval/results_2026-09-25
+D0=clean,rtnone_snr10_d0,rtnone_snr0_d0,rt0.4_snrnone_d0,rt0.8_snrnone_d0
+$PY Stage_5_Eval/noise_eval/whisper_transcribe.py $M $S $E/whisper_fb --fallback --ids $D0       # ~30 min/file
+$PY Stage_5_Eval/noise_eval/gemini_live_transcribe.py $M $S $E/live --ids <subset> --speed 4     # ~3 min/file
+$PY Stage_5_Eval/noise_eval/gemini_transcribe.py $M $S $E/flash38 --model gemini-3.8-flash \
+    --prompt malay --min-interval 15 --ids $D0
+$PY Stage_5_Eval/noise_eval/gemma_transcribe.py $M $S $E/gemma --ids clean                      # ~2 h/file
+$PY Stage_5_Eval/noise_eval/score.py $R/manifest_d0.csv $R/whisper/fallback $GT out \
+    --vs Stage_5_Eval/noise_eval/results_2026-09-24/transcripts/oracle_vad
+```
+
+The last command reproduces `results_2026-09-25/whisper/result_fallback_cells.csv` byte for byte,
+and the same command on `gemini/live` with the Transcribe subset manifest reproduces
+`result_live_vs_ours_cells.csv` (both verified 2026-09-25).

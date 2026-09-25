@@ -1,0 +1,5 @@
+id,wav,rt60,snr,draw,rt60_measured,ir,noise,slice_seed
+rtnone_snr10_d0,C:/Users/user/PycharmProjects/collaboration-stt/.scratch/noise_eval/wav/rtnone_snr10_d0.wav,0.0,10.0,0,0.0,,OOFFICE-ch15.wav,678549614
+rtnone_snr0_d0,C:/Users/user/PycharmProjects/collaboration-stt/.scratch/noise_eval/wav/rtnone_snr0_d0.wav,0.0,0.0,0,0.0,,OOFFICE-ch15.wav,678549614
+rt0.4_snrnone_d0,C:/Users/user/PycharmProjects/collaboration-stt/.scratch/noise_eval/wav/rt0.4_snrnone_d0.wav,0.4,inf,0,0.32004595714742995,room_013_v1_near_fixed_t60_1.80.wav.npy,,
+rt0.8_snrnone_d0,C:/Users/user/PycharmProjects/collaboration-stt/.scratch/noise_eval/wav/rt0.8_snrnone_d0.wav,0.8,inf,0,0.6795459690167448,room_021_v4_far_4.34m_t60_2.44.wav.npy,,
