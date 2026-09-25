@@ -10,8 +10,12 @@ models on the Gemini API reject it ("Audio input modality is not enabled",
 2026-09-25). Audio clips are limited to 30 s, so each oracle (clean-audio VAD)
 segment is decoded separately, exactly as whisper_transcribe.py does. The
 prompt is the model card's ASR prompt, decoding is greedy, and the output goes
-through gemini_transcribe.normalise. The model runs in bfloat16: fp32 E2B needs
-about 20 GB of RAM.
+through gemini_transcribe.normalise.
+
+--dtype defaults to float32. On the laptop CPU (i7-1365U, no native bf16), fp32 E2B
+was 3.4-4x faster than bfloat16 with identical text on the 3 segments compared
+(2026-09-25), but needs about 20 GB of RAM against about 12 GB. The dtype is
+recorded in raw/<id>.json, and a resumed file must use the same one.
 
 Outputs:
   OUT_DIR/raw/<id>.json  model, prompt, raw text and seconds per segment
@@ -50,6 +54,7 @@ def main():
     p.add_argument("--ids")
     p.add_argument("--threads", type=int, default=4)
     p.add_argument("--max-new-tokens", type=int, default=256)
+    p.add_argument("--dtype", choices=["float32", "bfloat16"], default="float32")
     a = p.parse_args()
 
     from transformers import AutoModelForMultimodalLM, AutoProcessor
@@ -66,7 +71,7 @@ def main():
 
     t0 = time.time()
     proc = AutoProcessor.from_pretrained(a.model)
-    model = AutoModelForMultimodalLM.from_pretrained(a.model, dtype=torch.bfloat16).eval()
+    model = AutoModelForMultimodalLM.from_pretrained(a.model, dtype=getattr(torch, a.dtype)).eval()
     print(f"{len(rows)} files x {len(segs)} segments, model {a.model}, loaded in {time.time() - t0:.0f}s",
           flush=True)
 
@@ -77,8 +82,8 @@ def main():
         raw_path = os.path.join(a.out_dir, "raw", r["id"] + ".json")
         raw = json.load(open(raw_path, encoding="utf-8")) if os.path.exists(raw_path) else {
             "model": a.model, "prompt": PROMPT, "wav": r["wav"], "segments": segs,
-            "texts": [], "seconds": [], "threads": a.threads, "dtype": "bfloat16"}
-        assert (raw["model"], raw["prompt"], raw["segments"]) == (a.model, PROMPT, segs), \
+            "texts": [], "seconds": [], "threads": a.threads, "dtype": a.dtype}
+        assert (raw["model"], raw["prompt"], raw["segments"], raw["dtype"]) == (a.model, PROMPT, segs, a.dtype), \
             f"{raw_path} was made with other settings"
         x, sr = sf.read(r["wav"], dtype="float32")
         assert sr == SR and x.ndim == 1, f"{r['wav']}: expected {SR} Hz mono, got {sr} Hz {x.shape}"

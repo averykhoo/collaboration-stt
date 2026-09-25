@@ -130,7 +130,7 @@ and `noise_eval/results_2026-09-25/`. Run everything from the **repo root**.
 | Runner | Model | Where it runs | Time per file (2026-09-25) |
 |---|---|---|---|
 | `whisper_transcribe.py` | `mesolitica/Malaysian-whisper-large-v3-turbo-v3` | laptop CPU | 22–41 min with `--fallback` |
-| `gemma_transcribe.py` | `google/gemma-4-E2B-it` (or E4B / 12B) | laptop CPU | 89–106 min in bf16 |
+| `gemma_transcribe.py` | `google/gemma-4-E2B-it` (or E4B / 12B) | laptop CPU | about 27 min in fp32 (default); 89–106 min in bf16 |
 | `gemini_transcribe.py` | `gemini-3.5-transcribe`, or a Flash model with `--prompt malay` | Gemini API | 1–5 min |
 | `gemini_live_transcribe.py` | `gemini-3.5-transcribe-live` | Gemini Live API (WebSocket) | about 3 min at `--speed 4` |
 
@@ -190,7 +190,7 @@ runner saves after every segment.
 # Whisper: always use --fallback. Pure greedy decoding loops on noisy audio.
 $PY Stage_5_Eval/noise_eval/whisper_transcribe.py $M $S $OUT --fallback --ids ...
 
-# Gemma 4 (bf16, about 12 GB RAM)
+# Gemma 4: fp32 by default (about 20 GB RAM, 3.4-4x faster than --dtype bfloat16 on this CPU)
 HF_HUB_DISABLE_SYMLINKS_WARNING=1 $PY Stage_5_Eval/noise_eval/gemma_transcribe.py $M $S $OUT --ids ...
 
 # Gemini Transcribe (no prompt). Default spacing is 65 s for its 10K tokens/min limit.
@@ -228,7 +228,7 @@ $PY Stage_5_Eval/noise_eval/score_files.py $OUT [$OUT2 ...] > scores.csv   # per
 ### 6. Sharing the laptop
 
 - **Run one CPU model at a time unless you've checked RAM.** Whisper fp32 needs about 4.5 GB,
-  Gemma E2B bf16 about 12 GB, and each uses 4 threads. Two jobs at once slow each other and
+  Gemma E2B about 20 GB in fp32 or 12 GB in bf16, and each uses 4 threads. Two jobs at once slow each other and
   skew both timings.
 - **The Gemini runners are network-bound** and can run alongside anything.
 - **Copy results into a tracked folder the same day.** Record each finished run in a dated
