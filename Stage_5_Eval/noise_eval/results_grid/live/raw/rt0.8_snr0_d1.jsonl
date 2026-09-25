@@ -1,0 +1,7 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "6.920s"}}
+{"serverContent": {"inputTranscription": {"text": "Achtung und"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "8.600s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "40.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "41.920s"}}

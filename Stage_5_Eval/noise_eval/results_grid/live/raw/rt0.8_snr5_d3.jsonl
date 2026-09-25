@@ -1,0 +1,91 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "0.880s"}}
+{"serverContent": {"interimInputTranscription": {"text": "mesin ketika"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ketika itu"}}}
+{"serverContent": {"inputTranscription": {"text": "ketika itu"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "8.080s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "9.040s"}}
+{"serverContent": {"interimInputTranscription": {"text": "안 보여"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Amponi tuanku."}}}
+{"serverContent": {"inputTranscription": {"text": "Ampun Tuanku, lantik"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "12.160s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "30s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Dieu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dia datang"}}}
+{"serverContent": {"inputTranscription": {"text": "Dia datang beli makanan."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "31.960s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "37.240s"}}
+{"serverContent": {"interimInputTranscription": {"text": "な、 楽さん が"}}}
+{"serverContent": {"interimInputTranscription": {"text": "नालंदा सणकन अथवा"}}}
+{"serverContent": {"inputTranscription": {"text": "Nak laksanakan ataupun nakmenjelaskan satu persatu tentang hijrah."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "41.920s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "72.480s"}}
+{"serverContent": {"inputTranscription": {"text": "In the book at the bottom of the name"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "74.760s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "106.840s"}}
+{"serverContent": {"inputTranscription": {"text": "Biasanya tak boleh jadi."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "109.480s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "112.720s"}}
+{"serverContent": {"inputTranscription": {"text": "पाशे कॉलेज चले जाओ।"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "114s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "166s"}}
+{"serverContent": {"inputTranscription": {"text": "Oye, amigo, ¿sí"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "167.560s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "218.360s"}}
+{"serverContent": {"interimInputTranscription": {"text": "yang berkeinginan"}}}
+{"serverContent": {"inputTranscription": {"text": "yang berjalan, daging ni makna dia bangkai."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "221.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "233.080s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Jadi yang kita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Jadi yang kita ini pun saya"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Jadi yang kita telepon saya"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Jadi yang kita ini pun saya bawa pasang."}}}
+{"serverContent": {"inputTranscription": {"text": "Jadi kalau kita ini pun saya kurang puas hati.telah saya tulis dalam baiknyaDan masa-masa di ketika itu"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "240.520s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "277.800s"}}
+{"serverContent": {"inputTranscription": {"text": "Saya tak tahu nak cakap apa lagi. Orang"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "279.440s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "300.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "301s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "374s"}}
+{"serverContent": {"inputTranscription": {"text": "Apa yang lagi banyak ni?"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "375.640s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "396.160s"}}
+{"serverContent": {"inputTranscription": {"text": "من اهل الله"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "397.240s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "490.560s"}}
+{"serverContent": {"inputTranscription": {"text": "DabanggSetidaknya-tidaknya Anda"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "494.320s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "495.440s"}}
+{"serverContent": {"inputTranscription": {"text": "मेरे फादर"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "496.880s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "537.240s"}}
+{"serverContent": {"inputTranscription": {"text": "Karnan movieDada"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "540.280s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "541.560s"}}
+{"serverContent": {"inputTranscription": {"text": "ナースィクのムカシュコーラン"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "544.600s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "555.240s"}}
+{"serverContent": {"inputTranscription": {"text": "अरबी की"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "557.200s"}}

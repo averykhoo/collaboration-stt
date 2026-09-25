@@ -1,0 +1,47 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "0.320s"}}
+{"serverContent": {"interimInputTranscription": {"text": "отделы"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Одела я на шею"}}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "4.560s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "5.440s"}}
+{"serverContent": {"interimInputTranscription": {"text": "of the"}}}
+{"serverContent": {"interimInputTranscription": {"text": "of the"}}}
+{"serverContent": {"inputTranscription": {"text": "Ampun, Tuanku."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "10.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "36.040s"}}
+{"serverContent": {"inputTranscription": {"text": "आराम की तरह"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "37s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "37.680s"}}
+{"serverContent": {"inputTranscription": {"text": "melaksanakan keputusan-keputusan"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "40.520s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "71.240s"}}
+{"serverContent": {"inputTranscription": {"text": "Sit down."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "75.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "146.360s"}}
+{"serverContent": {"inputTranscription": {"text": "Adora."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "147.480s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "200.560s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "201.720s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "242.280s"}}
+{"serverContent": {"inputTranscription": {"text": "Bir bir"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "245.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "486.440s"}}
+{"serverContent": {"inputTranscription": {"text": "Día más o menos, o sea,"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "488.200s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "490.760s"}}
+{"serverContent": {"inputTranscription": {"text": "I am not"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "492.320s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "539.320s"}}
+{"serverContent": {"inputTranscription": {"text": "Dalam?"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "540.320s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "562.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "564.840s"}}

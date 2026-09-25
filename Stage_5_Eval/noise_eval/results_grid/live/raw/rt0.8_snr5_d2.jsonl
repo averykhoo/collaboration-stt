@@ -1,0 +1,50 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "0.920s"}}
+{"serverContent": {"interimInputTranscription": {"text": "musyrik begitu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu.Ini"}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu.ingin"}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu.ingin ambil di"}}}
+{"serverContent": {"interimInputTranscription": {"text": "begitu.ingin abdi"}}}
+{"serverContent": {"inputTranscription": {"text": "ituইন্নাল্লাহা বিইন্নি আলীমুল"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "8.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "10.520s"}}
+{"serverContent": {"inputTranscription": {"text": "Learn this."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "11.920s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "36.080s"}}
+{"serverContent": {"inputTranscription": {"text": "Kalau tidak nak katakan ataupun nak menjumlahkan satu persatu yang tak terjual."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "41.680s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "72.440s"}}
+{"serverContent": {"inputTranscription": {"text": "Kita pun kata tak"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "73.480s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "74.640s"}}
+{"serverContent": {"inputTranscription": {"text": "Bawa sikit boleh ke tak?"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "76.960s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "168.400s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "170.160s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "200.640s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "202.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "223s"}}
+{"serverContent": {"inputTranscription": {"text": "गीता ने"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "223.960s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "264.520s"}}
+{"serverContent": {"inputTranscription": {"text": "صلى اللهسیدنا محمد"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "267.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "490.560s"}}
+{"serverContent": {"inputTranscription": {"text": "Dah belanggar tu."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "493.960s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "539.240s"}}
+{"serverContent": {"inputTranscription": {"text": "Dada"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "540.280s"}}

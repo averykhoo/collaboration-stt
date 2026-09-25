@@ -338,6 +338,42 @@ Only the E2B, E4B and 12B checkpoints take audio, and only in clips of up to 30 
 - **Reverb costs it much less than it costs ours.**
 - **No failures.** It had no runaway segments and one empty segment across all five files.
 
+## Full-grid baselines (weekend run from 2026-09-25)
+
+These are the worthwhile baselines on all 71 files (15 cells × 5 draws, plus clean), scored
+with `score.py` against our oracle-VAD run. The run started 2026-09-25 23:37; each model's
+completion date is given with its table. Evidence is in `results_grid/`, and ids were run
+draw-major (`results_grid/ids_by_draw.txt`).
+
+### Gemini 3.5 Transcribe Live (complete 2026-09-26 02:05)
+
+`--speed 4`. The 21 files carried over from the subset run reproduce its numbers exactly.
+
+| RT60 bucket | SNR (dB) | WER % [95% CI] | Live − ours, pp [95% CI] |
+|---|---|---|---|
+| clean | clean | 42.4 [35.5, 49.2] | +7.0 [−0.1, +13.9] |
+| none | 20 | 42.2 [35.8, 48.8] | +5.9 [−1.0, +12.4] |
+| none | 10 | 48.6 [40.9, 56.5] | +6.8 [+0.6, +12.7] |
+| none | 5 | 56.7 [44.7, 69.6] | +9.1 [+2.6, +15.4] |
+| none | 0 | 69.4 [50.9, 87.1] | +13.3 [+6.0, +20.7] |
+| 0.4s | none | 57.2 [49.5, 64.8] | −18.8 [−26.3, −11.4] |
+| 0.4s | 20 | 67.5 [56.4, 77.6] | −9.6 [−18.0, −0.7] |
+| 0.4s | 10 | 79.5 [65.6, 92.2] | −1.8 [−10.2, +6.0] |
+| 0.4s | 5 | 83.7 [69.8, 96.6] | −1.0 [−7.4, +4.0] |
+| 0.4s | 0 | 88.5 [76.0, 99.5] | +1.4 [−3.5, +5.2] |
+| 0.8s | none | 71.8 [65.0, 78.5] | −21.8 [−28.8, −15.1] |
+| 0.8s | 20 | 85.3 [78.2, 91.4] | −8.5 [−15.4, −2.6] |
+| 0.8s | 10 | 91.3 [84.4, 97.3] | −3.7 [−9.7, +0.9] |
+| 0.8s | 5 | 94.0 [88.7, 98.5] | −1.6 [−5.7, +1.4] |
+| 0.8s | 0 | 96.7 [91.8, 99.7] | +0.1 [−3.5, +2.9] |
+
+- **Noise:** Live is worse than ours at every SNR, and the gap grows as SNR falls (+6 to +13 pp).
+- **Reverb:** its advantage holds only with little or no noise (none or 20 dB). With reverb plus
+  noise at 10 dB or louder it is level with ours. The combined condition breaks both models.
+- **Near-empty outputs:** a few files returned almost nothing, e.g. `rt0.8_snr0_d1`: 2 words.
+  All of them combine 0 dB restaurant or cafeteria babble with reverb. They are real outputs,
+  not failed requests: no stream failed in this run.
+
 ## Bugs found and fixed along the way
 
 - **`predict.py`: crash on very short segments.** Noisy audio makes the VAD emit slivers too short

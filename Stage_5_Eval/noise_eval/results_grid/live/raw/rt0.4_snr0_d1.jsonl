@@ -1,0 +1,7 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "6.920s"}}
+{"serverContent": {"inputTranscription": {"text": "Afrin zone I"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "8.200s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "399.080s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "400.040s"}}

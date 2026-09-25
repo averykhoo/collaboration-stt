@@ -1,0 +1,44 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "0.880s"}}
+{"serverContent": {"interimInputTranscription": {"text": "masjid begitu."}}}
+{"serverContent": {"inputTranscription": {"text": "begitu."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "4.640s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "5.440s"}}
+{"serverContent": {"interimInputTranscription": {"text": "of the"}}}
+{"serverContent": {"inputTranscription": {"text": "Ya Hafizul Alim, ampunkan"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "10.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "36.040s"}}
+{"serverContent": {"inputTranscription": {"text": "👂"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "37.040s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "39.200s"}}
+{"serverContent": {"inputTranscription": {"text": "Menciptakan satu kesatuan di dalam jero."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "41.960s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "72.480s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Kita pun"}}}
+{"serverContent": {"inputTranscription": {"text": "Kita pun kata tak bolehlahPaham sedikit, Pak Duta."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "76.880s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "120.240s"}}
+{"serverContent": {"inputTranscription": {"text": "तो यहां पे"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "121.520s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "233.040s"}}
+{"serverContent": {"inputTranscription": {"text": "Sejak dari zaman kitab ini"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "234.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "467.400s"}}
+{"serverContent": {"inputTranscription": {"text": "dan strategi Kementerian"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "469.400s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "489.720s"}}
+{"serverContent": {"inputTranscription": {"text": "เซฟตี้ วีล"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "492.080s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "562.480s"}}
+{"serverContent": {"inputTranscription": {"text": "masalahnya mulai"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "567.080s"}}

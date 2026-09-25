@@ -1,0 +1,20 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "10.520s"}}
+{"serverContent": {"inputTranscription": {"text": "Lantus"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "11.800s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "36.080s"}}
+{"serverContent": {"interimInputTranscription": {"text": "แล้ว ก็ กิน"}}}
+{"serverContent": {"inputTranscription": {"text": "Hello, teacher."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "37s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "57.600s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Give me a right to"}}}
+{"serverContent": {"inputTranscription": {"text": "Give me a right to reject."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "59.360s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "490.640s"}}
+{"serverContent": {"interimInputTranscription": {"text": "你不 认识我"}}}
+{"serverContent": {"inputTranscription": {"text": "我本来打算去"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "492.400s"}}

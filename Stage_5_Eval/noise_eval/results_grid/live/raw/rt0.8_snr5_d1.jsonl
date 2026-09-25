@@ -1,0 +1,25 @@
+{"setupComplete": {}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "0.880s"}}
+{"serverContent": {"interimInputTranscription": {"text": "cerca di"}}}
+{"serverContent": {"interimInputTranscription": {"text": "sekitar 200"}}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "4.400s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "5.520s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Inni"}}}
+{"serverContent": {"inputTranscription": {"text": "Inna hafidzun alim."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "10.280s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "60.800s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "61.840s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "72.480s"}}
+{"serverContent": {"inputTranscription": {"text": "कितने बजे आता है?"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "73.400s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "264.360s"}}
+{"serverContent": {"inputTranscription": {"text": "استغفر الله"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "265.440s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "563.200s"}}
+{"serverContent": {"interimInputTranscription": {"text": "C'est"}}}
+{"serverContent": {"inputTranscription": {"text": "permohonan izin, pasalnya oleh"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "566.920s"}}
