@@ -193,18 +193,36 @@ All numbers in this section come from runs on 2026-09-25. Evidence is in
 
 ### All models on the draw-0 files
 
-WER %; ✗ means no usable output.
+WER %; ✗ means no usable output. "×2" means a second attempt with identical settings failed
+the same way. "then" gives the second attempt's result where it differed.
 
-| Model | clean | none, 10 dB | none, 0 dB | 0.4s, none | 0.8s, none |
-|---|---|---|---|---|---|
-| **Ours** (oracle VAD) | **35.5** | 38.4 | 39.6 | 69.0 | 93.8 |
-| Gemini 3.5 Transcribe (2026-09-24) | 37.1 | **36.2** | **36.4** | **37.6** | ✗ empty |
-| Gemini 3.5 Transcribe Live | 42.4 | 45.4 | 50.2 | 51.6 | 70.6 |
-| Gemini 3 Flash (`gemini-3-flash-preview`) | 43.3 | 44.9 | ✗ runaway (111.5) | 40.8 | **42.5** |
-| Gemini 3.8 Flash | 45.5 | 47.0 | 42.4 | ✗ blocked | ✗ blocked |
-| Gemini 3.5 Flash | ✗ cut short (99.6) | 41.0 | ✗ empty | 43.1 | 48.0 |
-| Mesolitica Whisper turbo, standard fallback decoding | 49.4 | 47.0 | 65.4 | 51.1 | 96.7 |
-| Mesolitica Whisper turbo, greedy only | 48.2 | 90.5 | 77.6 | 128.5 | 190.8 |
+**How each model was segmented:**
+- **Oracle VAD:** the clean clip's VAD segments are reused on every file, so only the recogniser
+  is tested.
+- **Actual VAD:** our VAD runs on each noisy file, which is the real end-to-end pipeline.
+- **Gemini models:** they get the whole file (the oracle span is 0.0–592.8 s, i.e. all of it) and
+  segment it themselves, so they are end to end.
+- **Whisper and Gemma:** they ran on oracle segments only.
+
+| Model | Segmentation | clean | none, 10 dB | none, 0 dB | 0.4s, none | 0.8s, none |
+|---|---|---|---|---|---|---|
+| **Ours** | oracle VAD | **35.5** | 38.4 | 39.6 | 69.0 | 93.8 |
+| **Ours** | actual VAD | **35.5** | 38.4 | 39.9 | 70.6 | 95.7 |
+| Gemini 3.5 Transcribe (2026-09-24) | own | 37.1 | **36.2** | **36.4** | **37.6** | ✗ empty ×2 |
+| Gemini 3.5 Transcribe Live | own (server VAD) | 42.4 | 45.4 | 50.2 | 51.6 | 70.6 |
+| Gemini 3 Flash (`gemini-3-flash-preview`) | own | 43.3 | 44.9 | ✗ runaway ×2 | 40.8 | **42.5** |
+| Gemini 3 Flash, thinking low | own | 45.7 | 47.4 | 61.4 | 42.0 | ✗ runaway |
+| Gemini 3.5 Flash | own | ✗ cut short ×2 | 41.0 | ✗ empty, then ✗ runaway | 43.1 | 48.0 |
+| Gemini 3.5 Flash, thinking low | own | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway | ✗ RECITATION |
+| Gemini 3.6 Flash | own | pending (503) | 45.4 | 43.8 | 47.0 | pending (503) |
+| Gemini 3.8 Flash | own | 45.5 | 47.0 | 42.4 | ✗ blocked, then 46.3 | ✗ blocked ×2 |
+| Gemma 4 E2B (local, bf16) | oracle VAD | 43.9 | pending | pending | pending | pending |
+| Mesolitica Whisper turbo, standard fallback decoding | oracle VAD | 49.4 | 47.0 | 65.4 | 51.1 | 96.7 |
+| Mesolitica Whisper turbo, greedy only | oracle VAD | 48.2 | 90.5 | 77.6 | 128.5 | 190.8 |
+| Gemini 3.1 Flash-Lite | own | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway |
+
+Per-file scores for the retries, the thinking-low runs and 3.6 Flash are in
+`results_2026-09-25/gemini/retry_scores.csv`, from `score_files.py`.
 
 1. **On clean speech, nothing beats our model.** Gemini Transcribe is level with it; every other
    model is 7–14 pp worse.
@@ -278,10 +296,19 @@ Free tier, 20 requests a day each.
 | 3 Flash | On 0 dB it spent 62,910 thinking tokens, then answered partly in French until `MAX_TOKENS`. |
 | 3.8 Flash | Both reverb files were blocked: `promptFeedback.blockReason: OTHER`, no candidates. |
 | 3.1 Flash-Lite | All five hit `MAX_TOKENS` with 33K–65K words each (reference: 1,046). Not scored: aligning them took over 16 GB of RAM. |
-| 3.6 Flash | 3 of 5 files done, then HTTP 503 "high demand". Not scored. |
+| 3.6 Flash | 3 of 5 files done; clean and 0.8s still failing with HTTP 503 "high demand" after 7-minute backoffs. |
 
-- **Thinking may be the cause of the first two.** Turning thinking off or down may fix those
-  failures; that is untested.
+- **Retries (same day, a second API key, identical settings).** Most failures reproduce:
+  - Transcribe returned empty transcripts again on all 3 reverb files it had emptied.
+  - 3 Flash hit the same runaway on 0 dB, with the identical WER (111.5).
+  - 3.8 Flash was blocked again on 0.8s, but the 0.4s file went through (46.3).
+  - 3.5 Flash was cut short again on clean (16 words out). On 0 dB it switched from empty to
+    runaway (248.4%).
+- **Lowering thinking does not fix them.** `--thinking low` helped 3 Flash on 0 dB (61.4, from a
+  runaway) but broke its 0.8s file into a runaway. It made 3.5 Flash loop on every file
+  (27K–65K words out), and the fifth was blocked for `RECITATION`.
+- **These models are not usable baselines.** Failures that reproduce with the same settings are
+  properties of the model on that audio, not bad luck.
 - **Unavailable models.** `gemini-2.5-flash` is no longer offered to new keys (HTTP 404). The
   hosted Gemma 4 models (`gemma-4-31b-it`, `gemma-4-26b-a4b-it`) reject audio.
 

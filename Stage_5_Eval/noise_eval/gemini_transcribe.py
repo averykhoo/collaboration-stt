@@ -7,7 +7,12 @@ Usage (collaboration-stt env):
 For general models such as gemini-3.5-flash-lite, pass --prompt (see PROMPT_MALAY)
 and a shorter --min-interval. Those runs also use temperature 0.
 
-The API key is read from ~/.gemini_api_key. Never put it in the repo.
+The API key is read from ~/.gemini_api_key (or --key-file). Never put it in the repo.
+
+--thinking LEVEL sets generationConfig.thinkingConfig.thinkingLevel for models
+that think. On 2026-09-25, with the default level, gemini-3.5-flash and
+gemini-3-flash-preview each spent about 63K thinking tokens on one file and
+returned nothing usable.
 
 Each file is cut into chunks at the oracle (clean-audio VAD) segment boundaries,
 grouping consecutive segments while the chunk spans at most --chunk-s seconds.
@@ -135,7 +140,7 @@ def delete(key, f: dict) -> None:
         print(f"warning: could not delete {f['name']}: {err}", flush=True)
 
 
-def call(model, key, flac: bytes, prompt=None):
+def call(model, key, flac: bytes, prompt=None, thinking=None):
     uploaded = None
     if len(flac) <= INLINE_MAX:
         part = {"inline_data": {"mime_type": "audio/flac", "data": base64.b64encode(flac).decode()}}
@@ -147,6 +152,8 @@ def call(model, key, flac: bytes, prompt=None):
         if prompt:
             body["contents"][0]["parts"].append({"text": prompt})
             body["generationConfig"] = {"temperature": 0.0}
+        if thinking:
+            body.setdefault("generationConfig", {})["thinkingConfig"] = {"thinkingLevel": thinking}
         return _generate(model, key, body)
     finally:
         if uploaded:
@@ -171,7 +178,10 @@ def _generate(model, key, body):
                 time.sleep(wait)
                 continue
             if err.code >= 500 and attempt < 3:
-                time.sleep(2 ** (attempt + 1))
+                # 503 "high demand" spells lasted minutes on 2026-09-25; seconds-long backoff never cleared them.
+                wait = 60 * 2 ** attempt
+                print(f"HTTP {err.code}, retrying in {wait}s", flush=True)
+                time.sleep(wait)
                 continue
             raise RuntimeError(f"HTTP {err.code}: {err.read().decode()[:500]}")
         except (urllib.error.URLError, TimeoutError):
@@ -201,9 +211,11 @@ def main():
     p.add_argument("--prompt", help="text prompt for general models; 'malay' = PROMPT_MALAY")
     p.add_argument("--min-interval", type=float, default=65.0,
                    help="seconds between requests (3.5 Transcribe free tier: 10K tokens/min)")
+    p.add_argument("--thinking", help="thinkingLevel, e.g. low; default: the model's own")
+    p.add_argument("--key-file", default="~/.gemini_api_key")
     a = p.parse_args()
 
-    key = open(os.path.expanduser("~/.gemini_api_key")).read().strip()
+    key = open(os.path.expanduser(a.key_file)).read().strip()
     if a.prompt == "malay":
         a.prompt = PROMPT_MALAY
     with open(a.oracle_segments) as f:
@@ -224,15 +236,17 @@ def main():
             continue
         raw_path = os.path.join(a.out_dir, "raw", r["id"] + ".json")
         raw = json.load(open(raw_path, encoding="utf-8")) if os.path.exists(raw_path) else {
-            "model": a.model, "prompt": a.prompt, "wav": r["wav"], "chunks": chunks, "responses": []}
-        assert (raw["chunks"], raw["model"], raw.get("prompt")) == (chunks, a.model, a.prompt),             f"{raw_path} was made with other settings"
+            "model": a.model, "prompt": a.prompt, "thinking": a.thinking, "wav": r["wav"], "chunks": chunks,
+            "responses": []}
+        assert (raw["chunks"], raw["model"], raw.get("prompt"), raw.get("thinking")) == (
+            chunks, a.model, a.prompt, a.thinking),             f"{raw_path} was made with other settings"
         x, sr = sf.read(r["wav"])
         for b, e in chunks[len(raw["responses"]):]:
             time.sleep(max(0.0, last + a.min_interval - time.time()))
             buf = io.BytesIO()
             sf.write(buf, x[int(b * sr):int(e * sr)], sr, format="FLAC")
             try:
-                resp = call(a.model, key, buf.getvalue(), a.prompt)
+                resp = call(a.model, key, buf.getvalue(), a.prompt, a.thinking)
             except QuotaExhausted as err:
                 print(f"daily quota exhausted after {sent} requests: {err}", flush=True)
                 sys.exit(3)

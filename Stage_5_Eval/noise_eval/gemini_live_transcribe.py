@@ -4,7 +4,7 @@ Usage (collaboration-stt env, needs aiohttp):
     python noise_eval/gemini_live_transcribe.py MANIFEST.csv ORACLE_SEGMENTS.json OUT_DIR
         [--model gemini-3.5-transcribe-live] [--ids id1,id2,...] [--speed 4] [--min-interval 60]
 
-The API key is read from ~/.gemini_api_key. Never put it in the repo.
+The API key is read from ~/.gemini_api_key (or --key-file). Never put it in the repo.
 
 Each file is streamed over the Live API WebSocket (BidiGenerateContent) as
 16 kHz 16-bit PCM in 0.5 s chunks, from the first to the last oracle segment,
@@ -114,9 +114,10 @@ def main():
                    help="after the audio is sent, stop once the server is silent this long")
     p.add_argument("--retries", type=int, default=2)
     p.add_argument("--speed", type=float, default=4.0, help="times real time; 0 = unpaced")
+    p.add_argument("--key-file", default="~/.gemini_api_key")
     a = p.parse_args()
 
-    key = open(os.path.expanduser("~/.gemini_api_key")).read().strip()
+    key = open(os.path.expanduser(a.key_file)).read().strip()
     with open(a.oracle_segments) as f:
         segs = json.load(f)["segments"]
     span = (segs[0][0], segs[-1][1])
