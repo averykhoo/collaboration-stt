@@ -374,6 +374,43 @@ draw-major (`results_grid/ids_by_draw.txt`).
   All of them combine 0 dB restaurant or cafeteria babble with reverb. They are real outputs,
   not failed requests: no stream failed in this run.
 
+### Gemini 3.5 Transcribe (complete 2026-09-26 03:07)
+
+One request per file, no prompt. The 21 files from 2026-09-24 were reused unchanged; the other
+50 were run on 2026-09-26 over two API keys.
+
+| RT60 bucket | SNR (dB) | WER % [95% CI] | Transcribe − ours, pp [95% CI] | Transcribe − Live, pp [95% CI] |
+|---|---|---|---|---|
+| clean | clean | 37.1 [31.1, 43.3] | +1.6 [−4.8, +7.6] | −5.4 [−10.0, −1.3] |
+| none | 20 | 38.6 [31.9, 45.4] | +2.3 [−4.8, +9.2] | −3.6 [−7.7, +0.8] |
+| none | 10 | 38.5 [32.1, 45.1] | −3.3 [−10.3, +3.2] | −10.1 [−14.7, −5.9] |
+| none | 5 | 42.9 [35.4, 51.0] | −4.7 [−12.3, +2.5] | −13.8 [−21.6, −6.4] |
+| none | 0 | 52.1 [38.8, 66.1] | −4.0 [−9.7, +1.9] | −17.3 [−25.2, −9.7] |
+| 0.4s | none | 61.2 [40.0, 84.3] | −14.8 [−33.7, +4.7] | +4.0 [−17.5, +27.3] |
+| 0.4s | 20 | 54.4 [43.7, 65.0] | −22.7 [−32.5, −13.0] | −13.1 [−24.3, −1.1] |
+| 0.4s | 10 | 58.8 [41.3, 78.5] | −22.6 [−34.9, −8.2] | −20.8 [−31.7, −7.8] |
+| 0.4s | 5 | 80.5 [59.7, 98.6] | −4.2 [−17.5, +5.7] | −3.2 [−13.5, +3.8] |
+| 0.4s | 0 | 79.8 [56.8, 99.9] | −7.3 [−21.2, +4.1] | −8.7 [−20.7, +0.8] |
+| 0.8s | none | 88.5 [73.6, 98.5] | −5.1 [−19.5, +5.3] | +16.8 [+1.7, +29.7] |
+| 0.8s | 20 | 74.6 [55.2, 92.5] | −19.2 [−38.1, −1.8] | −10.7 [−27.9, +5.6] |
+| 0.8s | 10 | 80.6 [61.6, 98.0] | −14.4 [−32.7, +2.0] | −10.7 [−27.1, +3.8] |
+| 0.8s | 5 | 83.8 [68.4, 95.5] | −11.8 [−25.9, −0.7] | −10.2 [−23.7, +1.0] |
+| 0.8s | 0 | 88.3 [76.2, 98.6] | −8.3 [−18.4, −0.1] | −8.4 [−19.2, −0.8] |
+
+- **Noise only:** statistically level with ours at every SNR (all CIs include 0).
+- **Reverb:** better than ours in every reverb cell. The difference is significant in 5 of 10
+  (0.4s at 20 and 10 dB; 0.8s at 20, 5 and 0 dB).
+- **Against Live:** significantly better in 7 of 15 cells: clean, every noise-only cell below
+  20 dB, 0.4s at 20 and 10 dB, and 0.8s at 0 dB. It is level in 7, and significantly worse only
+  in the pure 0.8s cell, where its empty outputs cost it.
+- **12 of 71 files came back empty**, which scores 100% WER. They follow a clear pattern:
+  - All 12 are reverb files (24% of the 50 reverb files). None of the noise-only files is
+    empty.
+  - 10 of the 12 are draws 1 and 2: restaurant and cafeteria babble, plus those draws' IRs.
+  - The retries on 2026-09-25 showed these failures reproduce.
+- **Its reverb CIs are wide** because of this all-or-nothing behaviour. Where it answers, it
+  is much better than ours.
+
 ## Bugs found and fixed along the way
 
 - **`predict.py`: crash on very short segments.** Noisy audio makes the VAD emit slivers too short
