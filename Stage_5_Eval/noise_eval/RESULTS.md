@@ -209,7 +209,7 @@ the same way. "then" gives the second attempt's result where it differed.
 | **Ours** | oracle VAD | **35.5** | 38.4 | 39.6 | 69.0 | 93.8 |
 | **Ours** | actual VAD | **35.5** | 38.4 | 39.9 | 70.6 | 95.7 |
 | Gemini 3.5 Transcribe (2026-09-24) | own | 37.1 | **36.2** | **36.4** | **37.6** | ✗ empty ×2 |
-| Gemini 3.5 Transcribe Live | own (server VAD) | 42.4 | 45.4 | 50.2 | 51.6 | 70.6 |
+| Gemini 3.5 Transcribe Live | own (server VAD) | 42.4 | 43.9 | 48.3 | 51.6 | 70.8 |
 | Gemini 3 Flash (`gemini-3-flash-preview`) | own | 43.3 | 44.9 | ✗ runaway ×2 | 40.8 | **42.4** |
 | Gemini 3 Flash, thinking low | own | 45.7 | 47.4 | 61.4 | 42.0 | ✗ runaway |
 | Gemini 3.5 Flash | own | ✗ cut short ×2 | 41.0 | ✗ empty, then ✗ runaway | 43.1 | 48.0 |
@@ -274,6 +274,10 @@ VAD splits it into turns, and the final `inputTranscription` of each turn is sco
 
 - **Streaming pace matters for quota.** Streaming unpaced hit the per-minute token limit (socket
   close 1011).
+- **Superseded.** A client bug truncated 6 of these 21 files: the stream stopped before the
+  server finalised the last turn, dropping the reference's last line. The full-grid section
+  below has the corrected numbers, which change these cells by at most 0.4 pp. This table is
+  kept as it was.
 - **Results.** It covered the same 21 files as Transcribe (clean plus five draws of four cells):
 
 | Cell | WER % [95% CI] | Live − ours, pp | Live − Transcribe, pp |
@@ -356,20 +360,26 @@ this table matches the subset table by construction.
 |---|---|---|---|
 | clean | clean | 42.4 [35.5, 49.2] | +7.0 [−0.1, +13.9] |
 | none | 20 | 42.2 [35.8, 48.8] | +5.9 [−1.0, +12.4] |
-| none | 10 | 48.6 [40.9, 56.5] | +6.8 [+0.6, +12.7] |
-| none | 5 | 56.7 [44.7, 69.6] | +9.1 [+2.6, +15.4] |
-| none | 0 | 69.4 [50.9, 87.1] | +13.3 [+6.0, +20.7] |
-| 0.4s | none | 57.2 [49.5, 64.8] | −18.8 [−26.3, −11.4] |
+| none | 10 | 48.3 [40.4, 56.4] | +6.5 [+0.2, +12.5] |
+| none | 5 | 56.4 [44.2, 69.6] | +8.8 [+2.3, +15.2] |
+| none | 0 | 69.0 [50.2, 87.0] | +13.0 [+5.4, +20.5] |
+| 0.4s | none | 57.0 [49.3, 64.5] | −19.0 [−26.5, −11.7] |
 | 0.4s | 20 | 67.5 [56.4, 77.6] | −9.6 [−18.0, −0.7] |
 | 0.4s | 10 | 79.5 [65.6, 92.2] | −1.8 [−10.2, +6.0] |
 | 0.4s | 5 | 83.7 [69.8, 96.6] | −1.0 [−7.4, +4.0] |
 | 0.4s | 0 | 88.5 [76.0, 99.5] | +1.4 [−3.5, +5.2] |
-| 0.8s | none | 71.8 [65.0, 78.5] | −21.8 [−28.8, −15.1] |
+| 0.8s | none | 71.8 [65.0, 78.4] | −21.8 [−28.8, −15.1] |
 | 0.8s | 20 | 85.3 [78.2, 91.4] | −8.5 [−15.4, −2.6] |
 | 0.8s | 10 | 91.3 [84.4, 97.3] | −3.7 [−9.7, +0.9] |
 | 0.8s | 5 | 94.0 [88.7, 98.5] | −1.6 [−5.7, +1.4] |
 | 0.8s | 0 | 96.7 [91.8, 99.7] | +0.1 [−3.5, +2.9] |
 
+- **Truncation fix (2026-09-26).** The review found that 8 of 71 streams ended before the
+  server finalised a last turn that ran to the end of the audio, so that text was lost.
+  - The client now ends each stream with 2 s of silence.
+  - Those 8 files were re-run, and none is truncated now (`--rebuild` checks every log). The old
+    logs are kept as `raw/<id>.truncated.jsonl`.
+  - This table uses the re-run files. The correction lowers WER by at most 0.4 pp per cell.
 - **Noise:** Live is worse than ours at every SNR, and the gap grows as SNR falls (+6 to +13 pp).
 - **Reverb:** its advantage holds only with little or no noise (none or 20 dB). With reverb plus
   noise at 10 dB or louder it is level with ours. The combined condition breaks both models.
@@ -390,15 +400,15 @@ One request per file, no prompt. The 21 files from 2026-09-24 were reused unchan
 |---|---|---|---|---|
 | clean | clean | 37.1 [31.1, 43.3] | +1.6 [−4.8, +7.6] | −5.4 [−10.0, −1.3] |
 | none | 20 | 38.6 [31.9, 45.4] | +2.3 [−4.8, +9.2] | −3.6 [−7.7, +0.8] |
-| none | 10 | 38.5 [32.1, 45.1] | −3.3 [−10.3, +3.2] | −10.1 [−14.7, −5.9] |
-| none | 5 | 42.9 [35.4, 51.0] | −4.7 [−12.3, +2.5] | −13.8 [−21.6, −6.4] |
-| none | 0 | 52.1 [38.8, 66.1] | −4.0 [−9.7, +1.9] | −17.3 [−25.2, −9.7] |
-| 0.4s | none | 61.2 [40.0, 84.3] | −14.8 [−33.7, +4.7] | +4.0 [−17.5, +27.3] |
+| none | 10 | 38.5 [32.1, 45.1] | −3.3 [−10.3, +3.2] | −9.8 [−14.6, −5.6] |
+| none | 5 | 42.9 [35.4, 51.0] | −4.7 [−12.3, +2.5] | −13.5 [−21.5, −6.1] |
+| none | 0 | 52.1 [38.8, 66.1] | −4.0 [−9.7, +1.9] | −16.9 [−25.0, −9.2] |
+| 0.4s | none | 61.2 [40.0, 84.3] | −14.8 [−33.7, +4.7] | +4.2 [−17.1, +27.3] |
 | 0.4s | 20 | 54.4 [43.7, 65.0] | −22.7 [−32.5, −13.0] | −13.1 [−24.3, −1.1] |
 | 0.4s | 10 | 58.8 [41.3, 78.5] | −22.6 [−34.9, −8.2] | −20.8 [−31.7, −7.8] |
 | 0.4s | 5 | 80.5 [59.7, 98.6] | −4.2 [−17.5, +5.7] | −3.2 [−13.5, +3.8] |
 | 0.4s | 0 | 79.8 [56.8, 99.9] | −7.3 [−21.2, +4.1] | −8.7 [−20.7, +0.8] |
-| 0.8s | none | 88.5 [73.6, 98.5] | −5.1 [−19.5, +5.3] | +16.8 [+1.7, +29.7] |
+| 0.8s | none | 88.5 [73.6, 98.5] | −5.1 [−19.5, +5.3] | +16.8 [+1.7, +29.6] |
 | 0.8s | 20 | 74.6 [55.2, 92.5] | −19.2 [−38.1, −1.8] | −10.7 [−27.9, +5.6] |
 | 0.8s | 10 | 80.6 [61.6, 98.0] | −14.4 [−32.7, +2.0] | −10.7 [−27.1, +3.8] |
 | 0.8s | 5 | 83.8 [68.4, 95.5] | −11.8 [−25.9, −0.7] | −10.2 [−23.7, +1.0] |

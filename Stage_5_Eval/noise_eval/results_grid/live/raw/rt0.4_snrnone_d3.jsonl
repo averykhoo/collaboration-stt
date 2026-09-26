@@ -13,6 +13,10 @@
 {"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
 {"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
 {"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "raja di Mesir ketika itu"}}}
 {"serverContent": {"inputTranscription": {"text": "Mesir ketika itu. Ampun tuanku, lantik"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "11.680s"}}
@@ -22,12 +26,6 @@
 {"serverContent": {"interimInputTranscription": {"text": "Dia datang beli"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan."}}}
 {"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke? Dia"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke. Dia bungkus"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke, dia bungkus apa yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke, dia bungkus apa yangpas à tout"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke, dia bungkus apa yangpas à ta plateforme"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke, dia bungkus apa yangpas satu platform terbaik."}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dia datang beli makanan, oke, dia bungkus apa yangpas satu platform terbaik."}}}
 {"serverContent": {"inputTranscription": {"text": "Dia datang beli makanan, dia bungkus apa yang tu?Kalau kita nak laksanakan ataupun nak menceritakan satu persatu tentang hijrah"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "42s"}}
@@ -35,22 +33,19 @@
 {"serverContent": {"interimInputTranscription": {"text": "Oke, kita"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua gitu yang ada"}}}
-{"serverContent": {"inputTranscription": {"text": "Dia ni raja di Hindu, di Kerala."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua gitu yang ada masalah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua gitu yang ada masalah lagi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua gitu yang ada masalah lagi keren"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Mungkin kita semua gitu yang ada masalah lagi keren semua sama"}}}
+{"serverContent": {"inputTranscription": {"text": "Dia ni raja di Hindu, di Kerala.dia dengan isteri dia tiba-tiba"}}}
 {"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "60.600s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "62.280s"}}
-{"serverContent": {"interimInputTranscription": {"text": "với"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia."}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tiba"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tiba sebesar"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tiba sebesar mungkin"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tiba"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tiba"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tibaSebab itu tuan-tuan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tibasebagai tuan-tuan anak yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "dengan istri dia tiba-tibaSebab itu tuan-tuan, anak yang soleh"}}}
-{"serverContent": {"inputTranscription": {"text": "dia dengan isteri dia tiba-tibaSebab itu tuan-tuan anak yang solehsolat jenazah"}}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "65.760s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "66.120s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Sebab itu tuan-tuan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "sebagai tuan-tuan anak yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Sebab itu tuan-tuan, anak yang soleh"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Sebab itu tuan-tuan, anak yang soleh"}}}
+{"serverContent": {"inputTranscription": {"text": "Sebab itu tuan-tuan anak yang solehsolat jenazah"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "72.360s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "74.720s"}}
@@ -58,152 +53,90 @@
 {"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada"}}}
 {"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada"}}}
 {"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada"}}}
-{"serverContent": {"inputTranscription": {"text": "bawa sikit kepada Perdana Menteri"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "77s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "77.920s"}}
 {"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada"}}}
-{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你们这干"}}}
-{"serverContent": {"inputTranscription": {"text": "Tengok sekalipun tidak kepada wanita tersebut."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "82.480s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "82.800s"}}
-{"serverContent": {"inputTranscription": {"text": "Bila wanita itu datang."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "84.440s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "85.880s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Ini sudah datang"}}}
-{"serverContent": {"inputTranscription": {"text": "yang unik dan mereka akan mencipta personaliti ini untuk menjadikan diri mereka sebagai"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "92.760s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "93.680s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Dan kita sembahyang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Dan kita sembahyang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang beluk hak macam ni,"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni,"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang beluk hak macam ini, orang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni, orang tu"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni, orang tu"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni, orang tu biasanya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni, orang tu biasanya tak boleh"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang macam ni, orang tu biasanya tak boleh jalan."}}}
-{"serverContent": {"inputTranscription": {"text": "Macam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang belum macam ni, orang tu biasanya tak boleh jalan.ते उसी ने तो मुझे दिया।yang mudah dipahami."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "121.680s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "122s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Boleh saya beli"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Boleh saya beli sirih yang"}}}
-{"serverContent": {"inputTranscription": {"text": "boleh raya Malaysia yang berkilau tahun ini."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "124.520s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "125.560s"}}
-{"serverContent": {"inputTranscription": {"text": "มาเด้ๆ ไอ้เหี้ยมึงดื้อกูเอาเว้ย"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问的机关"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问的机关可多着。"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut."}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut."}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut."}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.Bila wanita itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.bilang unit atau data"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah itu sudah datang."}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau data"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau data"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang yang unik"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan mencipta"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagai"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju kita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju kita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju kita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju kita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "bawah sikit daripada你问这干什么? Tengok sekali pun tidak kepada wanita tersebut.wilayah unit atau dataIni sudah datang Tiang unik, nah ini mereka akan menciptakan ini untuk menjadikan diri mereka sebagaiMacam mana baju kita yang berkedut bila kita"}}}
+{"serverContent": {"inputTranscription": {"text": "bawa sikit kepada Perdana MenteriTengok sekalipun tidak kepada wanita tersebut.Bila wanita itu datang.yang unik dan mereka akan mencipta personaliti ini untuk menjadikan diri mereka sebagaiMacam mana baju kita yang berkedut bila kita seterika boleh tegak?Bagaimana kita corakkan anak kita? Kalau kita sembahyang belum macam ni, orang tu biasanya tak boleh jalan.ते उसी ने तो मुझे दिया।yang mudah dipahami.boleh raya Malaysia yang berkilau tahun ini.มาเด้ๆ ไอ้เหี้ยมึงดื้อกูเอาเว้ย"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "127.920s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "135.080s"}}
 {"serverContent": {"interimInputTranscription": {"text": "keuangan Islam"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap dua"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap dua tahun"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap dua tahun"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap dua tahun tanggal gaji"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap duatahun tanggal gaji"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap duatahun tanggal gaji mengikut tarikh lantikan bagi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam setiap duatahun tanggal gaji mengikut tarikh lantikan bagi setiap"}}}
-{"serverContent": {"inputTranscription": {"text": "keuangan Islam setiap 2 tahun. Tangga gaji mengikut gred lantikan bagi setiap jawatan yang diperuntukkan di pejabat."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "141.400s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "141.960s"}}
-{"serverContent": {"interimInputTranscription": {"text": "atau ada orang dapat"}}}
-{"serverContent": {"inputTranscription": {"text": "atau ada orang dapat hidayah dengan kelembutan."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "145.720s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "146.200s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Adonanyang di"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Adonanyang dibentang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Adonanyang dibentangkan dengan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Adonanyang dibentangkan dengan"}}}
-{"serverContent": {"inputTranscription": {"text": "Hello, I just gonnaSaya nak berjalan-jalan hari ini."}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam."}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap dua"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap dua tahun"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap dua"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap dua tahun tanggal gaji"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap duatahun tanggal gaji"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap duatahun tanggal gaji pelantikan bagi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap duatahun tanggal gaji mengikut tarikh lantikan bagi setiap"}}}
+{"serverContent": {"interimInputTranscription": {"text": "keuangan Islam. Setiap duatahun tanggal gaji mengikut dari lantikan bagi setiap jabatan yang"}}}
+{"serverContent": {"inputTranscription": {"text": "keuangan Islam setiap 2 tahun. Tangga gaji mengikut gred lantikan bagi setiap jawatan yang diperuntukkan di pejabat.atau ada orang dapat hidayah dengan kelembutan.Hello, I just gonnaSaya nak berjalan-jalan hari ini."}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "154.840s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "166s"}}
 {"serverContent": {"interimInputTranscription": {"text": "韩国 料理"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki di"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya? Eh sepanjang kami"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya? Eh sepanjang kami bertapa"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya? Eh sepanjang kami"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya? Eh sepanjang kami bertapa"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Apa yang direkomendasikan Prince Chiki daripada saya? Eh sepanjang kami bertapa. Begitu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "羊 を 恋し かん"}}}
+{"serverContent": {"interimInputTranscription": {"text": "羊 を 殺し た プリンス"}}}
 {"serverContent": {"inputTranscription": {"text": "yang dikongsikan Prince Harry diri pada saya sepanjang kami bertapa begitu menitik berat. kawasan kahwin"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "174.760s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "176.840s"}}
-{"serverContent": {"inputTranscription": {"text": "मैं यहां इसीलिए तो हूं।"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "177.920s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "179s"}}
 {"serverContent": {"interimInputTranscription": {"text": "dengan"}}}
 {"serverContent": {"interimInputTranscription": {"text": "dengan saya ya."}}}
-{"serverContent": {"inputTranscription": {"text": "and then send it."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "180.040s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "181.040s"}}
-{"serverContent": {"interimInputTranscription": {"text": "¿Qué es esto? ¿Qué es esto?"}}}
-{"serverContent": {"inputTranscription": {"text": "क्या करना है?واہ بولا الحمدللہ استاد"}}}
+{"serverContent": {"interimInputTranscription": {"text": "dengan saya ya."}}}
+{"serverContent": {"inputTranscription": {"text": "मैं यहां इसीलिए तो हूं।and then send it.क्या करना है?واہ بولا الحمدللہ استاد"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "187.760s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "190.440s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan celana daripada itu"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan wanita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan wanita ada"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan wanita ada juga."}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan wanita ada juga"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dan setelah dari pada itu adalah Nabi Musa dan di kalangan wanita ada juga"}}}
-{"serverContent": {"inputTranscription": {"text": "Dan salah satu daripada itu adalah Musailamah al-Kazzab dan di kalangan wanita ada juga.Max Brooks pun menulisBoleh kita langsung saja ke sini ya?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dan setelah daripada"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dan selain daripada itu adalah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dan selain daripada itu adalah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dan selain daripada itu adalah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Dan selain daripada itu adalah Musailamah Al-Kadzab dan"}}}
+{"serverContent": {"inputTranscription": {"text": "Dan salah satu daripada itu adalah Musailamah al-Kazzab dan di kalangan wanita ada juga."}}}
 {"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "205.440s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "206.520s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Ni se"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Bisa bantu saya?"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Di seberang saya, rekan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Di seberang saya, rapat"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Di seberang saya, rekan perawat saya"}}}
-{"serverContent": {"inputTranscription": {"text": "Di sebelah saya, rekan perawat saya dan Ikhwan juga turut hadir bagi membantu."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "212.800s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "214.200s"}}
-{"serverContent": {"inputTranscription": {"text": "Jadi, nak menentukan"}}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "197.280s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "198.160s"}}
+{"serverContent": {"interimInputTranscription": {"text": "Dobi aku yang sebelah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Max berusaha menulis"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Max Verstappen tulis"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Tulis. Entar."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Tulis. Entar."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Tulis. Entar.कॉलेज तो नासा में ही"}}}
+{"serverContent": {"inputTranscription": {"text": "Max Brooks pun menulisBoleh kita langsung saja ke sini ya?Di sebelah saya, rekan perawat saya dan Ikhwan juga turut hadir bagi membantu.Jadi, nak menentukan"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "215.720s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "217.800s"}}
@@ -211,109 +144,88 @@
 {"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan"}}}
 {"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging"}}}
 {"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini"}}}
-{"serverContent": {"inputTranscription": {"text": "Daging yang berjalan, daging ini maknanya dia bangkai, hah ini semua bangkai betul ya.yang baca hadis para sahabat buat."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "225.680s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "226.240s"}}
-{"serverContent": {"inputTranscription": {"text": "बत्ती है क्या?untuk memberi kerjasama secara tuntas hingga ke bawah."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "232.680s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "233.120s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Hadirin dan hadirat kita ini"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Hadirin dan hadirat, kita ini pun saya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Hadirin dan pendengar kita ini pun saya mau bawa pesan."}}}
-{"serverContent": {"interimInputTranscription": {"text": "Hadirin dan hadirat, kita ini di posisi"}}}
-{"serverContent": {"inputTranscription": {"text": "Haji, ini dalam kitab ini pun saya bawa pasalnya. Kitab yang saya tulis dalam baitDan mufassir ketika itu kebanyakan mereka adalah mahir berब्रो"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai. Ha, ini"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai. Ha ni bangkai"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai. Ha, ini semua bangkai itu ya."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat."}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.Untuk"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.untuk memberi kerja sama"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.untuk memberi kerjasama secara"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.untuk memberi kerjasama secara"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.untuk memberi kerjasama secara tuntas"}}}
+{"serverContent": {"interimInputTranscription": {"text": "daging yang berjalan, daging ini maknanya bangkai, bangkai gitu ya.baca hadis para sahabat buat.untuk memberi kerjasama secarasecara tuntas hingga ke bawah."}}}
+{"serverContent": {"inputTranscription": {"text": "Daging yang berjalan, daging ini maknanya dia bangkai, hah ini semua bangkai betul ya.yang baca hadis para sahabat buat.बत्ती है क्या?untuk memberi kerjasama secara tuntas hingga ke bawah.Haji, ini dalam kitab ini pun saya bawa pasalnya. Kitab yang saya tulis dalam baitDan mufassir ketika itu kebanyakan mereka adalah mahir berब्रो"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "245.360s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "247.200s"}}
 {"serverContent": {"interimInputTranscription": {"text": "tidak bukan pada"}}}
-{"serverContent": {"inputTranscription": {"text": "dilakukan pada peringkat permulaan ini"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "249.320s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "250.120s"}}
-{"serverContent": {"interimInputTranscription": {"text": "dalam"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam kode itu"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu,"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang mudah"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang mudah"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang mudah tergoda"}}}
-{"serverContent": {"inputTranscription": {"text": "Dalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang mudah tergoda dengan populariti mendadak yang digapai mereka.النصير وصلى الله على سيدنا محمد"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan ini"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan ini"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan inidalam"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan inidalam kode itu"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan iniDalam pada itu,"}}}
+{"serverContent": {"interimInputTranscription": {"text": "yang dilakukan pada peringkat permulaan iniDalam pada itu, saya"}}}
+{"serverContent": {"inputTranscription": {"text": "dilakukan pada peringkat permulaan iniDalam pada itu, saya dapat lihat ramai pelakon generasi baru ini kadang-kadang mudah tergoda dengan populariti mendadak yang digapai mereka.النصير وصلى الله على سيدنا محمد"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "267.360s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "279.560s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Pani is mu"}}}
-{"serverContent": {"inputTranscription": {"text": "penyebabnya yang sedemikian."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "281.640s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "282.520s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Ya ini kita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Okey. Yang ini kita cerita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Okey. Yang ini kita cerita"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Okey. Yang ini kita cerita riwayat yang"}}}
-{"serverContent": {"inputTranscription": {"text": "Dalam riwayat yang dibawa oleh Zubair ini, masjid itu ialah Masjid Quba."}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "289.560s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "290.240s"}}
-{"serverContent": {"interimInputTranscription": {"text": "camino"}}}
-{"serverContent": {"interimInputTranscription": {"text": "kami bersama"}}}
-{"serverContent": {"inputTranscription": {"text": "Kami bersama"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "292.560s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "293.120s"}}
-{"serverContent": {"inputTranscription": {"text": "돌아"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Pani es muy"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian."}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian."}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian."}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian."}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian.Ya ini kita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian.Okey. Yang ini kita cerita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "ini ilmu yang sedemikian.Okey. Yang ini kita cerita"}}}
+{"serverContent": {"inputTranscription": {"text": "penyebabnya yang sedemikian.Dalam riwayat yang dibawa oleh Zubair ini, masjid itu ialah Masjid Quba.Kami bersama돌아"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "295s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "298.600s"}}
 {"serverContent": {"interimInputTranscription": {"text": "Saya hendak"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya nak bertanya."}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya nak bertanya. Dari"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya nak bertanya. Dari pada pihak"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya nak bertanya. Dari pada pihak"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya nak bertanya. Dari pada pihak kementerian"}}}
-{"serverContent": {"inputTranscription": {"text": "Saya hendak bertanya daripada pihak kementerian, apakah tindakan yang lebih tegas yang diambil? Yang dinamakan sebagai PACU,"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "307.480s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "307.800s"}}
-{"serverContent": {"interimInputTranscription": {"text": "and"}}}
-{"serverContent": {"interimInputTranscription": {"text": "and coordination during"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"interimInputTranscription": {"text": "en coordination avec l'INSEE"}}}
-{"serverContent": {"inputTranscription": {"text": "sebagai approving authority.KPPI ini pemulihan."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak kementerian apa"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak kementerian apakah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak kementerian apakah tindakan yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak kementerian apakah tindakan yang lebih tegas"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Saya hendak bertanya. Dari pada pihak kementerian apakah tindakan yang lebih tegas yang"}}}
+{"serverContent": {"inputTranscription": {"text": "Saya hendak bertanya daripada pihak kementerian, apakah tindakan yang lebih tegas yang diambil? Yang dinamakan sebagai PACU,sebagai approving authority.KPPI ini pemulihan."}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "318.800s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "323.600s"}}
 {"serverContent": {"interimInputTranscription": {"text": "terminar de"}}}
 {"serverContent": {"interimInputTranscription": {"text": "terminar de comer"}}}
-{"serverContent": {"interimInputTranscription": {"text": "terminar de comer"}}}
+{"serverContent": {"interimInputTranscription": {"text": "de tapa"}}}
+{"serverContent": {"interimInputTranscription": {"text": "de tapaCerto, aqui tá"}}}
+{"serverContent": {"interimInputTranscription": {"text": "de tapaCerto, aqui tá"}}}
+{"serverContent": {"interimInputTranscription": {"text": "de tapaCerto, aqui tá na"}}}
+{"serverContent": {"interimInputTranscription": {"text": "de tapaCerta aqui tá na tipologia de dano."}}}
 {"serverContent": {"inputTranscription": {"text": "Kita mau naik gondola.Saya tak kita nak nanti boleh saja. Saya tak. Bagi adalah aku janji kerajaan yang rasmi sebenarnya apa yang dia nak buat.molas"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "338.560s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "342.800s"}}
+{"serverContent": {"interimInputTranscription": {"text": "La foresta degli"}}}
+{"serverContent": {"interimInputTranscription": {"text": "La foresta pulita di"}}}
 {"serverContent": {"inputTranscription": {"text": "yang perlu diberi perhatiannya yang khusus memandang memandang kan lepas ini"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "348.280s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "352.840s"}}
 {"serverContent": {"interimInputTranscription": {"text": "sebagai"}}}
-{"serverContent": {"interimInputTranscription": {"text": "sebagai motivasi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "sebagai motivasi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "sebagai motivasi"}}}
-{"serverContent": {"interimInputTranscription": {"text": "sebagai motivasiAh, mau"}}}
 {"serverContent": {"inputTranscription": {"text": "Sebagai buktiOh my God"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "359.440s"}}
@@ -324,34 +236,32 @@
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "375.960s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "396.560s"}}
-{"serverContent": {"inputTranscription": {"text": "أهل الله"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "398.280s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "399.040s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Supaya mereka"}}}
-{"serverContent": {"inputTranscription": {"text": "supaya mereka dapat ada ilmu, ada ada ada tatacara dan sebagainya."}}}
+{"serverContent": {"interimInputTranscription": {"text": "أهل الله"}}}
+{"serverContent": {"interimInputTranscription": {"text": "أهل الله"}}}
+{"serverContent": {"interimInputTranscription": {"text": "اهل الله"}}}
+{"serverContent": {"inputTranscription": {"text": "أهل اللهsupaya mereka dapat ada ilmu, ada ada ada tatacara dan sebagainya."}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "404s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "415.600s"}}
 {"serverContent": {"interimInputTranscription": {"text": "Rasul"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Rasul sebelum"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Rasul sebelum ini."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Rasul sebelum ini."}}}
 {"serverContent": {"inputTranscription": {"text": "Rasul sebelum ini. Lalu dia baca Taurat. Jadi ada manusia"}}}
 {"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "420.400s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "420.880s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "422.960s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "429s"}}
 {"serverContent": {"interimInputTranscription": {"text": "When"}}}
-{"serverContent": {"interimInputTranscription": {"text": "When"}}}
+{"serverContent": {"interimInputTranscription": {"text": "When in"}}}
+{"serverContent": {"interimInputTranscription": {"text": "When in can can put up TV?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "When in can can put up TV?"}}}
 {"serverContent": {"inputTranscription": {"text": "When can I put up the TV?"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "431.200s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "446.080s"}}
 {"serverContent": {"interimInputTranscription": {"text": "kerja yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "kerja yang"}}}
 {"serverContent": {"interimInputTranscription": {"text": "kerja yang kerajaan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "kerja yang kerajaan yang apa"}}}
-{"serverContent": {"interimInputTranscription": {"text": "kerja yang kerajaan yang lepas tak selesai"}}}
+{"serverContent": {"interimInputTranscription": {"text": "kerja yang kerajaan"}}}
 {"serverContent": {"inputTranscription": {"text": "kerja yang kerajaan yang lepas tak selesai. Saya juga minta Menteri Pengangkutan menjelaskan"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "453.920s"}}
@@ -363,49 +273,46 @@
 {"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi"}}}
-{"serverContent": {"inputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Sakit pun ada kes pegawai kastam di Kelantan wanita yangApakah kamu akan goyang pada hari ini?"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "481.680s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "482.760s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Film ini sudah"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Film ini sudah"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Film ini sudah bangun pagi"}}}
-{"serverContent": {"inputTranscription": {"text": "Kilmi sudah bangun pagi-pagi lagi hari itu. Dia masuk ke kedai yang sangat"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "488.560s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "489.560s"}}
-{"serverContent": {"interimInputTranscription": {"text": "解释 一下 。"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah berlangganan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah berlangganan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah berlangganan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah berlangganan US Dollar."}}}
-{"serverContent": {"interimInputTranscription": {"text": "Saya sudah berlangganan US dollar setidaknya"}}}
-{"serverContent": {"inputTranscription": {"text": "setidak-tidaknya anda mencoba.daripada duduk dan melakukan penipuan kepada Bapak"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "500.640s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "501.760s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Tapi bukan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Tapi bukan bukan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan Quraisy dan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan Quraisy. Dan satu"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan Quraisy dan satu-satunya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan Quraisy dan satu-satunya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "tapi bukan bukan Quraisy dan satu-satunya"}}}
-{"serverContent": {"inputTranscription": {"text": "dan satu-satunya berketurunan Yahudi ialah"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "507s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "507.440s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Il"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Il"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Ikatan kehidupan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "ikan dan kehidupan akuatik lain"}}}
-{"serverContent": {"interimInputTranscription": {"text": "ikan dan kehidupan akuatik lain juga boleh"}}}
-{"serverContent": {"interimInputTranscription": {"text": "ikan dan kehidupan akuatik lain juga boleh dilihat"}}}
-{"serverContent": {"interimInputTranscription": {"text": "ikan dan kehidupan akuatik lain juga boleh dilihat bermain"}}}
-{"serverContent": {"interimInputTranscription": {"text": "ikan dan kehidupan akuatik lain juga boleh dilihat bermain-main di"}}}
-{"serverContent": {"inputTranscription": {"text": "Ikan dan hidupan akuatik lain juga boleh dilihat bermain-main di sungai berkenaan. Naib Presiden Kanan pihak berkuasa wilayah pembangunan Iskandar,"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah ya itu akan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk ke Islam yang"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk ke Islam yang sangat"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk ke"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk ke전세"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Saya kita pernah ada kes pegawai kastam di Kelantan wanita yangApakah yang itu akan goyang pada hari ini?Film ini sudah bangun pagi-pagi lagi hari itu. Dia masuk ke解释 一下 。"}}}
+{"serverContent": {"inputTranscription": {"text": "Apakah plan spesifik dan strategi kementerian bersama dengan Kementerian Kesehatan?Sakit pun ada kes pegawai kastam di Kelantan wanita yangApakah kamu akan goyang pada hari ini?Kilmi sudah bangun pagi-pagi lagi hari itu. Dia masuk ke kedai yang sangatsetidak-tidaknya anda mencoba.daripada duduk dan melakukan penipuan kepada Bapakdan satu-satunya berketurunan Yahudi ialahIkan dan hidupan akuatik lain juga boleh dilihat bermain-main di sungai berkenaan. Naib Presiden Kanan pihak berkuasa wilayah pembangunan Iskandar,"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "515.800s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "526.760s"}}
@@ -414,11 +321,17 @@
 {"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti"}}}
+{"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti memutar-mutar cari parti tak ada."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti memutar-mutar, cari parti tak ada."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti memutar-mutar, cari parti tak ada."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti memutar-mutar, cari parti tak ada."}}}
+{"serverContent": {"interimInputTranscription": {"text": "Isu kedua adalah cari parti memutar-mutar, cari parti tak ada.Itu dalam"}}}
 {"serverContent": {"inputTranscription": {"text": "itu adalah cari parti memutar-mutar Sri Pahang tak ada.Duduk dalam majlis ilmu kuliah."}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "534.320s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "537.240s"}}
 {"serverContent": {"interimInputTranscription": {"text": "kanan ka"}}}
+{"serverContent": {"interimInputTranscription": {"text": "kanan ke kiri"}}}
 {"serverContent": {"interimInputTranscription": {"text": "kanan ke kiri"}}}
 {"serverContent": {"inputTranscription": {"text": "kanan ke kiriDhanan"}}}
 {"serverContent": {"generationComplete": true}}
@@ -435,37 +348,20 @@
 {"serverContent": {"interimInputTranscription": {"text": "Tapi kita boleh letak juga dia auto dia akan tutup"}}}
 {"serverContent": {"interimInputTranscription": {"text": "Tapi kita boleh letak juga dia auto, dia akan tutup auto."}}}
 {"serverContent": {"interimInputTranscription": {"text": "Tapi kita boleh letak juga dia auto, dia akan tutup auto. So"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Tapi kita boleh letak juga dia auto, dia akan tutup auto. So kita"}}}
-{"serverContent": {"inputTranscription": {"text": "Okey tapi kita boleh letak juga dia auto dia akan tutup auto so kita boleh set"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "561.360s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "562.840s"}}
-{"serverContent": {"interimInputTranscription": {"text": "Vamos"}}}
-{"serverContent": {"interimInputTranscription": {"text": "Vamos a ir"}}}
-{"serverContent": {"inputTranscription": {"text": "tadi masalahnya mereka"}}}
-{"serverContent": {"generationComplete": true}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "567.080s"}}
-{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "568.040s"}}
-{"serverContent": {"interimInputTranscription": {"text": "keluarkan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "keluarkan diri mereka"}}}
-{"serverContent": {"inputTranscription": {"text": "keluarkan diri mereka daripada"}}}
+{"serverContent": {"inputTranscription": {"text": "Okey tapi kita boleh letak juga dia auto dia akan tutup auto so kita boleh settadi masalahnya merekakeluarkan diri mereka daripada"}}}
 {"serverContent": {"generationComplete": true}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "572.680s"}}
 {"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "583.960s"}}
 {"serverContent": {"interimInputTranscription": {"text": "akan"}}}
 {"serverContent": {"interimInputTranscription": {"text": "akan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan majelis"}}}
+{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis"}}}
 {"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komite Kampung"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab kita dua"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab kita dua orang yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab kita dua orang yang"}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab kita dua orang yang berbeza."}}}
-{"serverContent": {"interimInputTranscription": {"text": "akan mewujudkan Majelis Pengurusan Komuniti Kampung yang dikendalikan oleh hidup selama-lamanya sebab kita dua orang yang berbeza.pergi"}}}
+{"serverContent": {"inputTranscription": {"text": "Hidup selama-lamanya sebab kita dua orang yang berbeza."}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "591.800s"}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_START", "audioOffset": "592.320s"}}
+{"serverContent": {"interimInputTranscription": {"text": "pergi"}}}
+{"serverContent": {"interimInputTranscription": {"text": "pergi"}}}
+{"serverContent": {"inputTranscription": {"text": "pergi mendalam"}}}
+{"serverContent": {"generationComplete": true}}
+{"serverContent": {}, "voiceActivity": {"type": "ACTIVITY_END", "audioOffset": "593.720s"}}

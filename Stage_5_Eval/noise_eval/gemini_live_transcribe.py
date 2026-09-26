@@ -44,6 +44,7 @@ import csv
 import glob
 import json
 import os
+import re
 import sys
 import time
 
@@ -161,11 +162,11 @@ def main():
 
     if a.rebuild:
         for raw_path in sorted(glob.glob(os.path.join(a.out_dir, "raw", "*.jsonl"))):
-            if ".fail" in raw_path:
+            run_id = os.path.basename(raw_path)[:-len(".jsonl")]
+            if re.search(r"\.(fail\d+|truncated)$", run_id):  # kept logs of superseded attempts
                 continue
             with open(raw_path, encoding="utf-8") as f:
                 turns, truncated = turns_from_log([json.loads(l) for l in f])
-            run_id = os.path.basename(raw_path)[:-len(".jsonl")]
             write_transcript(os.path.join(a.out_dir, run_id + ".txt"), turns)
             print(f"{run_id}: {len(turns)} turns" + ("  TRUNCATED" if truncated else ""), flush=True)
         return
