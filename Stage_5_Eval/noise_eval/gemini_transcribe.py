@@ -170,8 +170,10 @@ def _generate(model, key, body):
         except urllib.error.HTTPError as err:
             if err.code == 429:
                 body = err.read().decode()
-                if "PerDay" in body or attempt == 3:
+                if "PerDay" in body:
                     raise QuotaExhausted(body)
+                if attempt == 3:  # still per-minute limited after 3 waits: not a spent day, so not exit 3
+                    raise RuntimeError(f"HTTP 429 after {attempt + 1} attempts: {body[:500]}")
                 m = re.search(r'"retryDelay":\s*"(\d+)', body)
                 wait = int(m.group(1)) + 5 if m else 65
                 print(f"per-minute quota hit, waiting {wait}s", flush=True)
@@ -195,7 +197,7 @@ class QuotaExhausted(Exception):
 
 
 def text_of(resp) -> str:
-    parts = resp.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+    parts = (resp.get("candidates") or [{}])[0].get("content", {}).get("parts", [])
     return " ".join(p.get("audioTranscription", {}).get("text", "") or p.get("text", "")
                     for p in parts if not p.get("thought"))
 
@@ -259,7 +261,7 @@ def main():
             for resp in raw["responses"]:
                 f.write(normalise(text_of(resp)) + "\n")
         os.replace(final + ".part", final)
-        reasons = [resp.get("candidates", [{}])[0].get("finishReason") for resp in raw["responses"]]
+        reasons = [(resp.get("candidates") or [{}])[0].get("finishReason") for resp in raw["responses"]]
         flag = "" if all(x == "STOP" for x in reasons) else f"  FLAG finishReason={reasons}"
         print(f"{r['id']} done ({sent} requests so far){flag}", flush=True)
 

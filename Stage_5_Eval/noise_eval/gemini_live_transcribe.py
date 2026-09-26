@@ -14,8 +14,14 @@ in audio time). After audioStreamEnd, the run for a file ends once the server
 has been silent for --idle seconds.
 
 The transcript is the final `inputTranscription` text of each server turn,
-normalised with gemini_transcribe.normalise, one line per turn. Interim
-transcripts are logged but not scored.
+normalised with gemini_transcribe.normalise, one line per turn (see
+turns_from_log). When a file ends mid-speech, the server's VAD may never close
+the last turn, so its final never arrives and that text is lost. In the
+2026-09-26 grid this truncated 8 of 71 files; the lost text was usually the
+reference's last line. Streams now end with 2 s of silence so the turn can
+close. A log that still ends inside a turn is reported as TRUNCATED, and that
+file should be re-run. --rebuild re-derives every OUT_DIR/<id>.txt from the raw
+logs without calling the API, and lists truncated files.
 
 Free tier as of 2026-09-25: unlimited requests per day, 20K tokens per minute.
 A 10-minute file is about 14.8K tokens. Sending a whole file unpaced closed the
@@ -35,6 +41,7 @@ import argparse
 import asyncio
 import base64
 import csv
+import glob
 import json
 import os
 import sys
@@ -51,13 +58,45 @@ URL = ("wss://generativelanguage.googleapis.com/ws/"
 SR = 16000
 
 
+TAIL_SILENCE_S = 2.0
+
+
 class StreamFailed(Exception):
     pass
 
 
+def turns_from_log(messages):
+    """Final `inputTranscription` per turn, in order; returns (turns, truncated).
+
+    truncated is True when the log ends inside a turn: interim text arrived after the last
+    final, so the stream stopped before the server finalised it. That is a client-side loss
+    and the file should be re-run. Mid-stream turns with interim text but no final are left
+    out on purpose: in the 2026-09-26 grid they were the server discarding hallucinations
+    (Portuguese, Russian, Italian, Korean fragments) or a duplicate of the previous final.
+    """
+    turns, pending = [], False
+    for d in messages:
+        sc = d.get("serverContent", {})
+        if "interimInputTranscription" in sc:
+            pending = True
+        if "inputTranscription" in sc:
+            turns.append(sc["inputTranscription"].get("text", ""))
+            pending = False
+        if d.get("voiceActivity", {}).get("type") == "ACTIVITY_START":
+            pending = False
+    return turns, pending
+
+
+def write_transcript(final, turns):
+    with open(final + ".part", "w", encoding="utf-8") as f:
+        for t in turns:
+            f.write(normalise(t) + "\n")
+    os.replace(final + ".part", final)
+
+
 async def stream(key, model, pcm, raw_path, idle_s, speed):
-    """Stream int16 PCM; return the final transcript of each turn. Every message goes to raw_path."""
-    finals = []
+    """Stream int16 PCM plus TAIL_SILENCE_S of zeros; return turns_from_log. Every message goes to raw_path."""
+    messages = []
     with open(raw_path, "w", encoding="utf-8") as log:
         async with aiohttp.ClientSession() as s:
             async with s.ws_connect(URL, headers={"x-goog-api-key": key}, max_msg_size=0) as ws:
@@ -75,6 +114,9 @@ async def stream(key, model, pcm, raw_path, idle_s, speed):
                         await ws.send_json({"realtimeInput": {"audio": {
                             "data": base64.b64encode(pcm[i:i + step].tobytes()).decode(),
                             "mimeType": f"audio/pcm;rate={SR}"}}})
+                    silence = bytes(2 * int(SR * TAIL_SILENCE_S))  # lets the server VAD close the last turn
+                    await ws.send_json({"realtimeInput": {"audio": {
+                        "data": base64.b64encode(silence).decode(), "mimeType": f"audio/pcm;rate={SR}"}}})
                     await ws.send_json({"realtimeInput": {"audioStreamEnd": True}})
 
                 send = asyncio.create_task(sender())
@@ -92,13 +134,11 @@ async def stream(key, model, pcm, raw_path, idle_s, speed):
                         log.write(json.dumps(d, ensure_ascii=False) + "\n")
                         if "error" in d or "goAway" in d:
                             raise StreamFailed(json.dumps(d)[:500])
-                        sc = d.get("serverContent", {})
-                        if "inputTranscription" in sc:
-                            finals.append(sc["inputTranscription"].get("text", ""))
+                        messages.append(d)
                 finally:
                     send.cancel()
                 send.result()  # the loop only ends once the sender is done; re-raise its error, if any
-    return finals
+    return turns_from_log(messages)
 
 
 def main():
@@ -115,7 +155,20 @@ def main():
     p.add_argument("--retries", type=int, default=2)
     p.add_argument("--speed", type=float, default=4.0, help="times real time; 0 = unpaced")
     p.add_argument("--key-file", default="~/.gemini_api_key")
+    p.add_argument("--rebuild", action="store_true",
+                   help="rewrite every OUT_DIR/<id>.txt from raw/<id>.jsonl, no API calls")
     a = p.parse_args()
+
+    if a.rebuild:
+        for raw_path in sorted(glob.glob(os.path.join(a.out_dir, "raw", "*.jsonl"))):
+            if ".fail" in raw_path:
+                continue
+            with open(raw_path, encoding="utf-8") as f:
+                turns, truncated = turns_from_log([json.loads(l) for l in f])
+            run_id = os.path.basename(raw_path)[:-len(".jsonl")]
+            write_transcript(os.path.join(a.out_dir, run_id + ".txt"), turns)
+            print(f"{run_id}: {len(turns)} turns" + ("  TRUNCATED" if truncated else ""), flush=True)
+        return
 
     key = open(os.path.expanduser(a.key_file)).read().strip()
     with open(a.oracle_segments) as f:
@@ -142,7 +195,7 @@ def main():
             last = time.time()
             raw_path = os.path.join(a.out_dir, "raw", r["id"] + ".jsonl")
             try:
-                finals = asyncio.run(stream(key, a.model, pcm, raw_path, a.idle, a.speed))
+                finals, truncated = asyncio.run(stream(key, a.model, pcm, raw_path, a.idle, a.speed))
                 break
             except (StreamFailed, aiohttp.ClientError, asyncio.TimeoutError) as err:
                 print(f"{r['id']} attempt {attempt + 1} failed after {time.time() - last:.0f}s: {err}", flush=True)
@@ -150,11 +203,8 @@ def main():
         else:
             print(f"{r['id']} gave up", flush=True)
             continue
-        with open(final + ".part", "w", encoding="utf-8") as f:
-            for t in finals:
-                f.write(normalise(t) + "\n")
-        os.replace(final + ".part", final)
-        print(f"{r['id']} done in {time.time() - last:.0f}s, {len(finals)} turns, "
+        write_transcript(final, finals)
+        print(f"{r['id']} done in {time.time() - last:.0f}s, {len(finals)} turns{'  TRUNCATED' if truncated else ''}, "
               f"{sum(len(t.split()) for t in finals)} words", flush=True)
 
 

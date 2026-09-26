@@ -52,6 +52,15 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
   the systems segment differently.
 - **Alignment.** The whole hypothesis is aligned against the whole reference as one sequence, as
   `wer.py` does, with the three `allowed_*` lists applied. WER = (S+I+D)/(M+S+D).
+- **This is not strict edit distance.** `wer.py::__global_alignment` maximises a score (match
+  +2, insertion and deletion −0.75 each), not the minimum number of edits. It can report more
+  errors than the minimum:
+  - by 1 to 11 words (≤ 1.1 pp) on the transcripts checked on 2026-09-26: ours clean +1,
+    Transcribe clean +3, Gemma clean +1;
+  - most on insertion-heavy output, such as Whisper's looping 0.8s file (+11).
+
+  It is the project's official Stage 2 scorer and is applied identically to every system, so
+  it was kept; changing it would silently move every past number.
 - **Normalisation.** Our model emits reference-style text natively. Every other system's text
   goes through `gemini_transcribe.normalise`:
   - lowercase;
@@ -61,8 +70,16 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
   - `-_/` turned into spaces;
   - punctuation stripped, keeping word-internal apostrophes.
 
-  Arabic script is **not** transliterated. It counts as errors against the romanised reference,
-  which costs Whisper 26 words on clean.
+  Some of the baselines' output can never match the reference, whatever they heard:
+  - **Arabic script** is not transliterated. It counts as errors against the romanised
+    reference, which costs Whisper 26 words on clean.
+  - **Word-internal apostrophes** are kept, but the reference has none. "ka'ab", "ta'ala" and
+    "qur'an" (the reference writes "quran") are errors: 12–35 tokens per baseline directory,
+    ≤ 0.5 pp per file.
+  - **Live sometimes joins words in CamelCase** ("kiriDalamOpa"), which `normalise` cannot
+    split: 0–10 per file.
+
+  These costs apply to the baselines only: our model's output never contains them.
 - **Point estimate.** Per cell, counts are pooled over all draws and utterances.
 - **Confidence intervals.** 10,000 bootstrap replicates, seed 0, two levels:
   1. Reference utterances are resampled with multinomial weights. Each replicate uses the same
@@ -84,8 +101,12 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
    fits one Whisper window and Gemma's 30 s audio limit.
 3. **Gemini gets the whole file.** The oracle span is 0.0–592.8 s, so the Gemini systems
    receive everything and segment it themselves. They are end to end by construction.
-4. **Greedy decoding, temperature 0, is the default for every system.** That matches our
-   model's greedy search.
+4. **Greedy decoding is the default** wherever the API allows it, to match our model's greedy
+   search:
+   - Whisper and Gemma decode greedily.
+   - The prompted Gemini Flash models run at temperature 0.
+   - Gemini Transcribe (no prompt, no `generationConfig`) and Transcribe Live use the service's
+     own decoding, which is not controllable.
 5. **Whisper's standard fallback is the fair Whisper baseline.** Pure greedy loops on noisy
    audio (e.g. "eh" × 444 on a 1.2 s segment). Stock Whisper uses temperature fallback, and so
    did the Stage 3 baseline. Fallback sampling is seeded (`torch.manual_seed(0)`), so reruns
@@ -108,6 +129,21 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
 ## 5. Known limitations
 
 - **One clip, 1,046 words.** Absolute CIs are wide. Rely on the paired differences.
+- **The reference seems to contain text that is not in the audio.**
+  - 87 of the 1,046 reference tokens (8.3%) are words that appear nowhere in any of six
+    systems' clean outputs. That counts vocabulary: ours, Transcribe, Live, Whisper, Gemma and
+    3.6 Flash.
+  - By a stricter measure, 166 reference positions are matched by no system in alignment.
+  - Line 2, "tom melihat mary memecahkan kaca jendela", is produced by none of them, including
+    the Gemini models, which hear the whole file.
+  - Unless someone listens and the reference is corrected, every absolute WER has a floor of
+    roughly 8 pp. That includes our 35.5% clean headline.
+  - Paired differences are largely unaffected, because every system pays the same floor.
+- **The bootstrap treats the 101 utterances as independent.** Errors actually cluster by VAD
+  segment: reverb deletes whole segments, and one looping segment can add hundreds of
+  insertions to a single utterance. The CIs for reverb cells and for looping systems are
+  probably too narrow. A block bootstrap over segments would be more honest; it has not been
+  done.
 - **The test clip is home ground.** It comes from Mesolitica, and so does the training data of
   both our model and Mesolitica's Whisper.
 - **Mesolitica spelling.** The reference follows Mesolitica conventions, which our training data

@@ -79,20 +79,20 @@ The last column is noisy-VAD WER minus oracle-VAD WER, paired, so it shows what 
 
 | RT60 bucket | SNR (dB) | noisy-VAD WER % [95% CI] | ΔWER vs clean, pp | VAD cost, pp [95% CI] |
 |---|---|---|---|---|
-| none | 20 | 35.8 [28.5, 43.2] | +0.3 | -0.5 [-2.7, +1.9] |
-| none | 10 | 40.7 [32.1, 49.3] | +5.2 | -1.1 [-3.7, +1.1] |
-| none | 5 | 46.9 [34.9, 59.5] | +11.4 | -0.7 [-3.7, +2.1] |
-| none | 0 | 56.4 [39.7, 73.3] | +21.0 | +0.4 [-2.0, +2.8] |
-| 0.4s | none | 78.3 [68.1, 86.4] | +42.8 | +2.2 [+0.2, +4.6] |
-| 0.4s | 20 | 78.8 [67.8, 87.4] | +43.3 | +1.7 [-0.4, +4.0] |
-| 0.4s | 10 | 83.1 [72.2, 91.4] | +47.6 | +1.7 [-0.8, +4.8] |
-| 0.4s | 5 | 86.5 [73.7, 95.9] | +51.0 | +1.8 [-0.1, +4.1] |
-| 0.4s | 0 | 87.4 [73.6, 97.7] | +52.0 | +0.3 [-1.6, +2.3] |
-| 0.8s | none | 95.2 [92.5, 97.1] | +59.7 | +1.6 [-0.4, +4.0] |
-| 0.8s | 20 | 94.8 [92.1, 96.7] | +59.4 | +1.0 [-1.0, +3.3] |
-| 0.8s | 10 | 95.9 [93.3, 97.6] | +60.4 | +0.8 [-0.9, +2.9] |
-| 0.8s | 5 | 96.0 [92.4, 98.4] | +60.5 | +0.4 [-1.5, +2.1] |
-| 0.8s | 0 | 96.7 [93.2, 99.0] | +61.2 | +0.1 [-1.5, +1.7] |
+| none | 20 | 35.8 [29.6, 42.4] | +0.3 | -0.5 [-2.7, +1.9] |
+| none | 10 | 40.7 [33.1, 48.6] | +5.2 | -1.1 [-3.7, +1.1] |
+| none | 5 | 46.9 [36.2, 58.5] | +11.4 | -0.7 [-3.7, +2.1] |
+| none | 0 | 56.4 [40.4, 73.0] | +21.0 | +0.4 [-2.0, +2.8] |
+| 0.4s | none | 78.3 [69.2, 86.3] | +42.8 | +2.2 [+0.2, +4.6] |
+| 0.4s | 20 | 78.8 [69.5, 87.0] | +43.3 | +1.7 [-0.4, +4.0] |
+| 0.4s | 10 | 83.1 [72.6, 91.6] | +47.6 | +1.7 [-0.8, +4.8] |
+| 0.4s | 5 | 86.5 [75.0, 96.0] | +51.0 | +1.8 [-0.1, +4.1] |
+| 0.4s | 0 | 87.4 [75.2, 97.9] | +52.0 | +0.3 [-1.6, +2.3] |
+| 0.8s | none | 95.2 [92.5, 97.3] | +59.7 | +1.6 [-0.4, +4.0] |
+| 0.8s | 20 | 94.8 [92.3, 96.9] | +59.4 | +1.0 [-1.0, +3.3] |
+| 0.8s | 10 | 95.9 [93.6, 97.7] | +60.4 | +0.8 [-0.9, +2.9] |
+| 0.8s | 5 | 96.0 [92.6, 98.5] | +60.5 | +0.4 [-1.5, +2.1] |
+| 0.8s | 0 | 96.7 [93.4, 99.0] | +61.2 | +0.1 [-1.5, +1.7] |
 
 How the noisy VAD's segments drift from the oracle segments (`result_vadstats.md`):
 - **Missed speech:** almost none. It still covers 97–100% of the oracle speech time.
@@ -136,7 +136,7 @@ None of this costs much WER. For this model, the damage is in the recogniser, no
 ### Gemini 3.5 Transcribe (`gemini-3.5-transcribe`)
 
 This is a dedicated transcription model, used with no prompt. Its free tier allows 25 requests a
-day and 10K tokens a minute, so it covers a 20-file subset: clean, noise-only at 10 and 0 dB,
+day and 10K tokens a minute, so it covers a 21-file subset: clean, noise-only at 10 and 0 dB,
 and reverb-only in both buckets, with all 5 draws.
 
 | RT60 bucket | SNR (dB) | WER % [95% CI] | per-draw mean ± sd | ΔWER Gemini − ours, pp [95% CI] |
@@ -210,7 +210,7 @@ the same way. "then" gives the second attempt's result where it differed.
 | **Ours** | actual VAD | **35.5** | 38.4 | 39.9 | 70.6 | 95.7 |
 | Gemini 3.5 Transcribe (2026-09-24) | own | 37.1 | **36.2** | **36.4** | **37.6** | ✗ empty ×2 |
 | Gemini 3.5 Transcribe Live | own (server VAD) | 42.4 | 45.4 | 50.2 | 51.6 | 70.6 |
-| Gemini 3 Flash (`gemini-3-flash-preview`) | own | 43.3 | 44.9 | ✗ runaway ×2 | 40.8 | **42.5** |
+| Gemini 3 Flash (`gemini-3-flash-preview`) | own | 43.3 | 44.9 | ✗ runaway ×2 | 40.8 | **42.4** |
 | Gemini 3 Flash, thinking low | own | 45.7 | 47.4 | 61.4 | 42.0 | ✗ runaway |
 | Gemini 3.5 Flash | own | ✗ cut short ×2 | 41.0 | ✗ empty, then ✗ runaway | 43.1 | 48.0 |
 | Gemini 3.5 Flash, thinking low | own | ✗ runaway | ✗ runaway | ✗ runaway | ✗ runaway | ✗ RECITATION |
@@ -247,8 +247,10 @@ fp32, CPU, language `ms`, no timestamps.
   noisy audio: 2–5 of 42 segments per noisy file, e.g. "eh" 444 times on a 1.2 s segment. That
   adds 500–1,500 inserted words per file, hence WERs over 100%.
 - **The fair baseline is the standard fallback** (`--fallback`). A repetitive or unlikely segment
-  is re-decoded at temperature 0.2 … 1.0, as stock Whisper does. It left one looping segment in
-  each of two files, and on the 0.8s file that one segment ("eh" × 384) is most of the WER.
+  is re-decoded at temperature 0.2 … 1.0, as stock Whisper does. Some repetition survives:
+  - On the 0.8s file, one segment still loops ("eh" × 384). That is 384 of the file's 1,011
+    errors; without it the WER would be 59.9% rather than 96.7%.
+  - On the 0 dB file, one segment is 209 repetitive words.
 - **Against ours (fallback, paired Δ):**
   - Clean: +14.0 pp [+5.0, +23.2], mostly substitutions and insertions. Some of it is spelling
     style ("di kalangan" vs "dikalangan"). The reference follows Mesolitica conventions, and so
@@ -260,7 +262,7 @@ fp32, CPU, language `ms`, no timestamps.
 - **Speed (wall clock, 4 threads, i7-1365U).**
   - Greedy: 17–29 min per file.
   - Fallback: 22–41 min per file, but that run overlapped a Gemma job and a large scoring job.
-  - Full grid (71 files): about 20 h in fp32.
+  - Full grid (71 files): about 36 h with `--fallback` (mean about 30 min per file).
 - **int8 is not a stand-in.** faster-whisper int8 (CTranslate2) matched fp32 on only 13 of 42
   clean segments, looped more (clean WER 94.6%), and was only 5% faster on clean.
 
@@ -347,7 +349,8 @@ draw-major (`results_grid/ids_by_draw.txt`).
 
 ### Gemini 3.5 Transcribe Live (complete 2026-09-26 02:05)
 
-`--speed 4`. The 21 files carried over from the subset run reproduce its numbers exactly.
+`--speed 4`. The 21 files from the subset run were copied in, not re-run, so on those files
+this table matches the subset table by construction.
 
 | RT60 bucket | SNR (dB) | WER % [95% CI] | Live − ours, pp [95% CI] |
 |---|---|---|---|
@@ -371,8 +374,12 @@ draw-major (`results_grid/ids_by_draw.txt`).
 - **Reverb:** its advantage holds only with little or no noise (none or 20 dB). With reverb plus
   noise at 10 dB or louder it is level with ours. The combined condition breaks both models.
 - **Near-empty outputs:** a few files returned almost nothing, e.g. `rt0.8_snr0_d1`: 2 words.
-  All of them combine 0 dB restaurant or cafeteria babble with reverb. They are real outputs,
-  not failed requests: no stream failed in this run.
+  Most combine 0 dB restaurant or cafeteria babble with reverb. The exceptions are
+  `rt0.8_snr5_d1` (14 words, 5 dB) and `rt0.8_snr0_d3` (35 words, station noise). They are real
+  outputs, not failed requests.
+- **Stream retries.** None of the 50 new files needed one. Earlier, in the subset run,
+  `rtnone_snr10_d2` lost its socket twice before succeeding on the third attempt; both failed
+  logs are kept as `raw/*.fail<N>.jsonl`.
 
 ### Gemini 3.5 Transcribe (complete 2026-09-26 03:07)
 

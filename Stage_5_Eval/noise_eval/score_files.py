@@ -25,7 +25,7 @@ for d in sys.argv[1:]:
         if os.path.exists(rp):
             resp = json.load(open(rp, encoding="utf-8")).get("responses")  # Gemini raw files only
             if resp:
-                c = resp[0].get("candidates", [{}])[0]
+                c = (resp[0].get("candidates") or [{}])[0]
                 fin = c.get("finishReason") or ("blocked:" + str(resp[0].get("promptFeedback", {}).get("blockReason")))
         if len(hyp) > 5000:
             w.writerow([d, i, len(hyp), "", "", "", "", "runaway", fin]); continue
