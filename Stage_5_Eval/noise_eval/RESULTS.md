@@ -428,6 +428,22 @@ One request per file, no prompt. The 21 files from 2026-09-24 were reused unchan
 - **Its reverb CIs are wide** because of this all-or-nothing behaviour. Where it answers, it
   is much better than ours.
 
+### Abandoned: Gemini 3.6 Flash and 3.8 Flash (2026-09-26)
+
+Both were started on the full grid and stopped at the user's request. Their partial outputs and
+per-file scores are kept in `results_grid/flash36/`, `results_grid/flash38/` and
+`results_grid/abandoned_flash_scores.csv`.
+
+- **3.6 Flash: stopped at 6 of 71.**
+  - HTTP 503 "high demand" rejections still count towards the 20-a-day quota. On 2026-09-26
+    they used up both keys' quota after one new file.
+  - No file failed. Its 5-file draw-0 results above stand.
+- **3.8 Flash: stopped at 22 of 71, because it is unusable as a baseline.**
+  - 12 of the 22 outputs were blocked or empty (`promptFeedback.blockReason: OTHER`).
+  - Blocks cover reverb in both buckets, including the 0.4s file with no noise. They also hit
+    restaurant babble with no reverb (`rtnone_snr5_d1`, `rtnone_snr0_d1`).
+  - Where it answers, its median per-file WER is 46.7%.
+
 ## Bugs found and fixed along the way
 
 - **`predict.py`: crash on very short segments.** Noisy audio makes the VAD emit slivers too short
