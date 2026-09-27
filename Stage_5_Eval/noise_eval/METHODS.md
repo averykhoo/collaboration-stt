@@ -118,9 +118,11 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
    model outputs and score as they are.
 7. **Runaway outputs are flagged, not truncated.** Truncating would invent a score. Such files
    are marked ✗ and excluded from `score.py` runs, which need full sets.
-8. **Gemma runs in fp32.** It was 3.4–4× faster than bf16 on this CPU, with identical text on
-   the segments compared. The d0 files exist in both dtypes (`results_2026-09-25/gemma` for
-   bf16, `results_grid` for fp32 once done), which checks the equivalence on 5 × 42 segments.
+8. **Gemma runs in fp32 on the grid.** It was 3.4–4× faster than bf16 on this CPU. The two
+   dtypes are **not** equivalent: on the 5 × 42 segments run both ways, only 131 of 210 match
+   exactly. The first check covered only 3 segments, which all matched. Accuracy is close
+   (clean 43.2% fp32 vs 43.9% bf16), but the draw-0 bf16 table and the fp32 grid are different
+   runs and should not be mixed.
 9. **The int8 Whisper result was rejected**, not averaged in. It matched fp32 on only 13 of 42
    clean segments.
 10. **Grid ids run draw-major** (`ids_by_draw.txt`). A partial grid then covers every cell

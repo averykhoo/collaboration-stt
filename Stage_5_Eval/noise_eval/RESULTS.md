@@ -234,8 +234,9 @@ Per-file scores for the retries, the thinking-low runs and 3.6 Flash are in
 3. **General-purpose LLMs are mostly unreliable transcribers.** Every Flash model except 3.6
    broke on at least one of the five files.
 4. **Robust on all five files, and none of them failed:** ours, Transcribe Live, 3.6 Flash,
-   Whisper with fallback and Gemma 4 E2B. Among them, Gemma 4 E2B, a 5B-parameter model running
-   locally, is the most noise-robust: clean 43.9, 0 dB 45.3.
+   Whisper with fallback and Gemma 4 E2B. On draw 0, Gemma looked the most noise-robust (clean
+   43.9, 0 dB 45.3). The full grid below does not bear that out: with babble noise, Gemma loses
+   ground and sometimes loops.
 
 ### Mesolitica Whisper (`mesolitica/Malaysian-whisper-large-v3-turbo-v3`)
 
@@ -342,7 +343,8 @@ Only the E2B, E4B and 12B checkpoints take audio, and only in clips of up to 30 
 - **Noise barely moves it.** Office noise at 0 dB costs 1.4 pp. That is draw 0 only; babble was
   the hard noise type for our model and has not been tried.
 - **Reverb costs it much less than it costs ours.**
-- **No failures.** It had no runaway segments and one empty segment across all five files.
+- **No failures on these five files.** It had no runaway segments and one empty segment. The
+  full grid (below) does have loops.
 
 ## Full-grid baselines (weekend run from 2026-09-25)
 
@@ -427,6 +429,46 @@ One request per file, no prompt. The 21 files from 2026-09-24 were reused unchan
   - The retries on 2026-09-25 showed these failures reproduce.
 - **Its reverb CIs are wide** because of this all-or-nothing behaviour. Where it answers, it
   is much better than ours.
+
+### Gemma 4 E2B, fp32 (complete 2026-09-27 09:38)
+
+Oracle segments, model-card prompt, greedy, fp32. It took about 34 h for 71 files, about 29 min
+each, with no errors or restarts.
+
+| RT60 bucket | SNR (dB) | WER % [95% CI] | per-draw mean ± sd | Gemma − ours, pp [95% CI] | Gemma − Transcribe, pp [95% CI] |
+|---|---|---|---|---|---|
+| clean | clean | 43.2 [36.4, 50.2] | — | +7.7 [+1.1, +14.0] | +6.1 [+2.8, +9.6] |
+| none | 20 | 44.3 [37.2, 51.6] | 44.3 ± 0.8 | +8.0 [+1.4, +14.2] | +5.7 [+0.9, +10.0] |
+| none | 10 | 47.2 [39.6, 55.1] | 47.2 ± 3.8 | +5.4 [−1.5, +12.0] | +8.7 [+5.3, +12.4] |
+| none | 5 | 51.0 [42.2, 60.3] | 51.0 ± 7.6 | +3.4 [−3.5, +10.1] | +8.1 [+4.6, +12.0] |
+| none | 0 | 59.0 [46.1, 71.9] | 59.0 ± 14.5 | +3.0 [−3.3, +9.7] | +7.0 [+3.4, +10.7] |
+| 0.4s | none | 59.4 [48.5, 77.2] | 59.4 ± 9.1 | −16.6 [−28.1, +0.0] | −1.8 [−27.7, +24.9] |
+| 0.4s | 20 | 58.5 [50.1, 67.0] | 58.5 ± 4.0 | −18.6 [−26.6, −10.2] | +4.1 [−5.5, +13.8] |
+| 0.4s | 10 | 65.4 [54.2, 76.3] | 65.4 ± 11.0 | −15.9 [−22.9, −8.9] | +6.7 [−7.6, +17.0] |
+| 0.4s | 5 | 75.1 [57.7, 98.9] | 75.1 ± 20.5 | −9.6 [−19.5, +9.7] | −5.4 [−17.3, +11.8] |
+| 0.4s | 0 | 92.2 [60.3, 147.2] | 92.2 ± 45.8 | +5.2 [−17.7, +54.7] | +12.4 [−8.7, +58.4] |
+| 0.8s | none | 66.7 [59.4, 74.0] | 66.7 ± 4.6 | −26.9 [−33.9, −19.8] | −21.8 [−33.2, −9.7] |
+| 0.8s | 20 | 69.1 [61.6, 76.2] | 69.1 ± 6.2 | −24.7 [−31.9, −17.8] | −5.5 [−20.1, +9.2] |
+| 0.8s | 10 | 79.7 [68.4, 96.5] | 79.7 ± 13.3 | −15.4 [−25.5, +0.5] | −0.9 [−14.2, +13.8] |
+| 0.8s | 5 | 87.0 [74.3, 101.0] | 87.0 ± 13.4 | −8.6 [−19.9, +4.2] | +3.2 [−9.2, +16.4] |
+| 0.8s | 0 | 89.5 [78.0, 100.3] | 89.5 ± 11.7 | −7.1 [−16.8, +2.6] | +1.2 [−5.0, +9.4] |
+
+- **Noise:** Gemma is worse than ours on clean and at 20 dB, and level with ours from 10 to 0 dB.
+  It is significantly worse than Transcribe at every noise-only level.
+  - The draw-0 impression of noise robustness came from office noise. Babble (draws 1–2) costs
+    it much more: the 0 dB per-draw sd is 14.5 pp.
+- **Reverb:** it beats ours in 4 of 10 reverb cells: 0.4s at 20 and 10 dB, 0.8s with no noise
+  and at 20 dB. It is level with ours in the other 6.
+  - Against Transcribe it is level in every reverb cell but one. It wins pure 0.8s, where
+    Transcribe returns empty transcripts.
+- **Loops:** 9 of 71 files contain segments that loop up to the 256-token cap, e.g. "thì thì
+  thì …", drifting into Vietnamese.
+  - All 9 are reverb files, and 7 of them are babble draws (1–2).
+  - The cap bounds the damage, but it drives the 0.4s / 0 dB cell to 92% [60, 147].
+  - Listed in the 2026-09-27 check; the raw text is in `results_grid/gemma_fp32/raw/`.
+- **fp32 vs bf16:** the 5 draw-0 files, run in both dtypes, match on only 131 of 210 segments.
+  The accuracy is close (clean 43.2 vs 43.9), but this grid and the bf16 draw-0 table above are
+  different runs.
 
 ### Abandoned: Gemini 3.6 Flash and 3.8 Flash (2026-09-26)
 

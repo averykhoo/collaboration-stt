@@ -190,7 +190,8 @@ runner saves after every segment.
 # Whisper: always use --fallback. Pure greedy decoding loops on noisy audio.
 $PY Stage_5_Eval/noise_eval/whisper_transcribe.py $M $S $OUT --fallback --ids ...
 
-# Gemma 4: fp32 by default (about 20 GB RAM, 3.4-4x faster than --dtype bfloat16 on this CPU)
+# Gemma 4: fp32 by default (about 20 GB RAM, 3.4-4x faster than --dtype bfloat16 on this CPU;
+# the dtypes differ on about 38% of segments, so never mix them in one comparison)
 HF_HUB_DISABLE_SYMLINKS_WARNING=1 $PY Stage_5_Eval/noise_eval/gemma_transcribe.py $M $S $OUT --ids ...
 
 # Gemini Transcribe (no prompt). Default spacing is 65 s for its 10K tokens/min limit.

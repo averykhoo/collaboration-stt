@@ -13,9 +13,12 @@ prompt is the model card's ASR prompt, decoding is greedy, and the output goes
 through gemini_transcribe.normalise.
 
 --dtype defaults to float32. On the laptop CPU (i7-1365U, no native bf16), fp32 E2B
-was 3.4-4x faster than bfloat16 with identical text on the 3 segments compared
-(2026-09-25), but needs about 20 GB of RAM against about 12 GB. The dtype is
-recorded in raw/<id>.json, and a resumed file must use the same one.
+was 3.4-4x faster than bfloat16 (2026-09-25), but needs about 20 GB of RAM
+against about 12 GB. The two dtypes do NOT give identical text: only 131 of
+210 segments matched on the 5 files run both ways (2026-09-27). Their accuracy
+is close (clean WER 43.2% fp32 vs 43.9% bf16), but never mix them in one
+comparison. The dtype is recorded in raw/<id>.json, and a resumed file must
+use the same one.
 
 Outputs:
   OUT_DIR/raw/<id>.json  model, prompt, raw text and seconds per segment
