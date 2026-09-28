@@ -357,6 +357,8 @@ draw-major (`results_grid/ids_by_draw.txt`).
 
 **This is the main results table.** Every system is scored on all 71 files: clean, plus 14 cells ×
 5 draws. Completed 2026-09-28.
+As images: `results_grid/figures/table.png` (this table plus means over each axis),
+`wer_vs_snr.png` and `wer_vs_rt60.png`.
 
 - Each cell is WER % [95% CI] from `score.py`'s paired bootstrap.
 - ▼ / ▲: significantly better / worse than our model with oracle VAD (the paired 95% CI of the

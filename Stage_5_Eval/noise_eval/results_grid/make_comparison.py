@@ -11,6 +11,9 @@ Bold marks the lowest WER in each row.
 """
 import csv
 import os
+import sys
+
+sys.stdout.reconfigure(encoding="utf-8")  # ▲/▼ are not in cp1252, the Windows default for redirected output
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DAY1 = os.path.join(HERE, "..", "results_2026-09-24")
