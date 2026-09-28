@@ -26,7 +26,17 @@ are not derivable from the code. Written 2026-09-28.
 
 ## Open items, ranked
 
-1. **Gemma 4 12B QAT (q4_0) via llama.cpp.** Requested by the user and not started.
+1. **Gemma 4 12B QAT (q4_0) via llama.cpp: step 1 done on 2026-09-29, and the result is poor.**
+   See `results_2026-09-29_gemma12b_probe/NOTES.md`.
+   - `llama-mtmd-cli` aborts; `llama-server` works.
+   - A 15 s segment takes 90–120 s.
+   - On the clean clip it transcribes Malay as phonetic English-ish gibberish, adds unrequested
+     translations, and loops when given a Malay-primed prompt.
+   - **Blocked on a user decision:** either download 12B bf16 (about 24 GB; about 24 GB RAM) to
+     tell the model's own quality apart from the port and quantisation, or drop the 12B and fall
+     back to E4B.
+
+   The original plan is kept below for reference.
    - **Ready:**
      - `.scratch/tools/llama.cpp/` holds llama.cpp build `b11205` (win-cpu-x64), including
        `llama-mtmd-cli.exe`;

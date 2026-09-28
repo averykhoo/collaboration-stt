@@ -34,6 +34,7 @@ seeded draws, giving 70 degraded files plus clean, 71 in total.
 | 11 | 2026-09-27 | Gemma 4 E2B, fp32, full grid | 71 | `results_grid/gemma_fp32/` | same |
 | 12 | 2026-09-28 | Mesolitica Whisper turbo + fallback, full grid | 71 | `results_grid/whisper_fb/` | same |
 | 13 | 2026-09-26 | Abandoned: Gemini 3.6 Flash (6/71), 3.8 Flash (22/71) | — | `results_grid/flash36/`, `flash38/` | "Abandoned" |
+| 14 | 2026-09-29 | Gemma 4 12B QAT q4_0 via llama.cpp: feasibility probe, 3 clean segments | — | `results_2026-09-29_gemma12b_probe/` | not scored; see its `NOTES.md` |
 
 - **Each evidence folder holds:**
   - one normalised transcript per file (`<id>.txt`);
