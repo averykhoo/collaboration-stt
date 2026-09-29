@@ -50,3 +50,10 @@ The deciding test is 12B bf16 in transformers on segment 1. Its cost:
 - a download of about 24 GB, which is not yet in the HF cache;
 - about 24 GB of RAM;
 - about 15 minutes of compute.
+
+## Outcome (2026-09-29): closed by the user
+
+The 12B was dropped without the bf16 check.
+- The laptop has 34 GB (32 GiB) of RAM, with about 13 GB free at the time, shared with other
+  sessions. A 24 GB bf16 load is not practical.
+- The probe gives no reason to expect the 12B to beat E2B on this clip.
