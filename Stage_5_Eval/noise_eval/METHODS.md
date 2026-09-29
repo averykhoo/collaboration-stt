@@ -109,8 +109,8 @@ mesolitica.wav + gt_mesolitica.txt                 (exported/Stage5.tar.gz; 592 
      own decoding, which is not controllable.
 5. **Whisper's standard fallback is the fair Whisper baseline.** Pure greedy loops on noisy
    audio (e.g. "eh" × 444 on a 1.2 s segment). Stock Whisper uses temperature fallback, and so
-   did the Stage 3 baseline. Fallback sampling is seeded (`torch.manual_seed(0)`), so reruns
-   reproduce.
+   did the Stage 3 baseline. Fallback sampling is seeded (`torch.manual_seed(0)`), but only once
+   per process, so a rerun reproduces only if it processes the same files in the same order.
 6. **Retries never replace results.** A failed request that was re-sent with identical
    settings is reported as a second attempt next to the first. A setting change such as
    `--thinking low` becomes its own row. Transient failures (HTTP 503, files not run) were

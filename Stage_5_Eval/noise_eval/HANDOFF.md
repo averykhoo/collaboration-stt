@@ -41,12 +41,22 @@ are not derivable from the code. Written 2026-09-28.
    absent. Every absolute WER moves if it changes.
 2. **A second, neutral clip.** Suggested: a ~10-minute FLEURS test subset, plus the 3 m
    re-recording from Stage 3 (`rerecorded.wav`, real far-field, 30 min; our model scores 37.5%).
+   Our model scores 14.3% WER on FLEURS in the original Stage 5 run (`stat_fleurs.txt` inside
+   `exported/Stage5.tar.gz`, which is untracked).
    - `score.py` needs multi-clip support first: about half a day.
    - The full grid costs about 70 CPU-hours per clip for Gemma plus Whisper.
 3. **No-augmentation baseline for our model.** Retrain the Stage 4 recipe with
    `--enable-musan false` (about 7 GPU-days). The alternative is Mesolitica's
    `conformer-medium-mixed` vs `-mixed-augmented` pair; it needs `malaya-speech` and was not tried.
-4. **Rotate both Gemini API keys.** Both were pasted into chat. They live in
+4. **Leftovers from the 2026-09-26 review** (`results_grid/REVIEW_2026-09-26.md`). Its
+   findings 1–11 were fixed in `f6b8fd8` and `0a39d7d`; these two were not:
+   - **State the rule behind "12 were runaway repetition loops"** (`RESULTS.md`, Gemini Live).
+     The review says 12 means WER over 100% or more than 500 insertions, whereas
+     `score_files.py`'s over-5000-word rule gives 4. Verify that, then write the rule in.
+   - **Training overlap was never checked.** Nobody checked whether the 101 test utterances
+     appear in Mesolitica's training data or ours. `METHODS.md` only calls the clip "home
+     ground".
+5. **Rotate both Gemini API keys.** Both were pasted into chat. They live in
    `~/.gemini_api_key` and `~/.gemini_api_key_2`, never in the repo.
 
 ## Facts not derivable from the code

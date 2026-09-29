@@ -34,7 +34,10 @@ the win-cpu-x64 build, with 8 threads on the i7-1365U.
 | 0 | "aja di Mesir ketika itu qala ja'alni ala khaza inil ardi inni hafizun alim…" | The Quranic verse in Arabic script (correct content, wrong script for the reference), plus an unrequested "English:" translation |
 | 1 | "So ada satu hari ni adalah seorang uncle ni dia datang beli makanan…" | "So, I just got to Harini, I'll last to Ora Uncle, you that tank, belly makan…", plus a translation |
 | 2 | "Okey dia tak semua kita yang ada masalah lari…" | "Okay, bitas semu keteyar di masa lalu lagi keren…", plus a translation |
-| 1, Malay-primed prompt | — | Loops "I don't know, I don't know…" until `max_tokens` (`raw/clean_1_ms.json`) |
+| 1, Malay-primed prompt¹ | — | Loops "I don't know, I don't know…" until `max_tokens` (`raw/clean_1_ms.json`) |
+
+¹ The exact primed prompt was: "Transcribe this Malay speech exactly as spoken (it may contain
+some English and Arabic). Output only the transcription."
 
 On segments 1 and 2 the 12B transcribes Malay phonetically, as English-like gibberish, where E2B
 is close to correct. It also ignores the instruction to output only the transcription.

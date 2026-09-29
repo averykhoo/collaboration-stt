@@ -208,6 +208,9 @@ $PY Stage_5_Eval/noise_eval/gemini_live_transcribe.py $M $S $OUT --speed 4 --ids
 - **HTTP 503 "high demand"** is common on the Flash models. `gemini_transcribe.py` retries
   after 1, 2 and 4 minutes, then exits. Just rerun it later.
 - **Exit code 3** means the daily quota is used up.
+- **For unattended full-grid runs, use `noise_eval/gemini_loop.sh OUT LOG [args...]`.** It
+  retries until all 71 files exist, alternates the two key files, waits 10 minutes after a
+  failure and 1 hour when both quotas are spent, and gives up after 4 days.
 
 ### 5. Score
 
